@@ -8,6 +8,7 @@
 **Tools Used:** Simulated SIEM
 
 # Reporting Guide
+This section covers converting data into information to write an accurate report before submitting to an L2 analyst
 **Task 1:** According to the SOC dashboard, which user email leaked the sensitive document?
 
 - In reference to the picture, the description states that the user shared an important document outside of the organization which violates corporate policies.
@@ -41,3 +42,22 @@ I could say "At 19:25, support@microsoft.com sent a phishing e-mail to e.huffman
 <img width="1440" height="806" alt="Screenshot 2025-11-06 at 4 51 28 PM" src="https://github.com/user-attachments/assets/13e9c997-14ff-4be8-b239-82ef8d7a67be" />
 
 # Escalation Guide
+This section goes over communication with L2 whether sending alerts or requesting assistance as a L1 analyst
+
+**Task 1:** Who is your current L2 in the SOC dashboard that you can assign (escalate) the alerts to?
+
+- E.Fleming
+<img width="830" height="380" alt="Screenshot 2025-11-06 at 5 13 26 PM" src="https://github.com/user-attachments/assets/adfbf52e-acbe-47b7-80dc-8e8ca2f20119" />
+
+##
+
+**Task 2:** What flag did you receive after correctly escalating the alert from the previous task to L2? 
+
+What this is saying is, because I wrote the report while assigning the alert to myself (L1 analyst), I now have to assign it to the L2 analyst, in this case, E.Fleming
+
+<img width="830" height="486" alt="Screenshot 2025-11-06 at 5 16 30 PM" src="https://github.com/user-attachments/assets/155cbede-4915-45b1-b872-476ff8e7c547" />
+
+##
+
+**Task 3:** Now, investigate the second new alert in the queue and provide a detailed alert comment.Then, decide if you need to escalate this alert and move on according to the process.
+
