@@ -26,3 +26,36 @@
 │
 └── resume-bullets.md # Short bullet points for your resume from these labs
 '''
+
+---
+
+## 🧠 README Template
+
+```markdown
+# SOC Analyst Learning Portfolio
+
+## 🎯 Objective
+
+## 🧩 Current Focus
+
+## 📚 Labs Completed
+
+## 🧾 Resume Highlights (for reference)
+
+---
+
+## 🧩 Example `analysis.md` for a Lab
+
+# 🧩 Lab: Failed Login Investigation
+**Date:** 2025‑11‑01
+**Objective:**
+
+### 🧰 Tools Used
+
+### 🧠 Steps Taken
+
+### 🔍 Findings
+
+### 🛡️ Mitigation
+
+### 📄 Summary
