@@ -14,6 +14,7 @@
 - **Source User Email** shows "m.boslan@tryhackme.thm"
 <img width="1440" height="806" alt="Screenshot 2025-11-06 at 4 13 51 PM" src="https://github.com/user-attachments/assets/b04569de-97a7-45b6-b9aa-96665538aebe" />
 
+##
 
 **Question 2:** Looking at the new alerts, who is the "sender" of the suspicious, likely phishing email?
 
