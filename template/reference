@@ -1,0 +1,28 @@
+## 📁 Folder Structure
+'''
+/SOC-Labs-Portfolio
+│
+├── README.md # Overview of your SOC learning journey
+├── /labs # Each folder = one lab or investigation
+│ ├── 2025-11-01_Failed-Login-Investigation/
+│ │ ├── logs/ # Raw logs, alerts, or screenshots
+│ │ ├── analysis.md # Your write-up of findings
+│ │ ├── report.md # Summary report in professional tone
+│ │ └── rules.md # Snort/Suricata/Sigma rules created
+│ │
+│ ├── 2025-11-08_Phishing-Detection/
+│ │ ├── evidence/ # Screenshots, IOC lists, email headers, etc.
+│ │ ├── analysis.md
+│ │ └── report.md
+│ │
+│ └── ... more labs ...
+│
+├── /tools # Notes and commands for tools you use
+│ ├── Wireshark.md
+│ ├── Zeek.md
+│ ├── Snort.md
+│ ├── Splunk.md
+│ └── TCPdump.md
+│
+└── resume-bullets.md # Short bullet points for your resume from these labs
+'''
