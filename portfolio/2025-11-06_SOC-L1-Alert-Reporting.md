@@ -65,20 +65,20 @@ The picture provided shows an array of commands that would relate to discovery. 
 
 <img width="1440" height="756" alt="Screenshot 2025-11-06 at 5 19 57 PM" src="https://github.com/user-attachments/assets/7c8eeb5f-62bf-4ab1-a7e8-2263d0c1e70b" />
 
-- Who: NT AUTHORITY\SYSTEM (**most privileged** built-in account on a machine, We can tell a lot about the level of severity due to what processes are being run under "SYSTEM") account on **host** DMZ-MSEXCHANGE-2013. 
+- **Who:** NT AUTHORITY\SYSTEM (**most privileged** built-in account on a machine, We can tell a lot about the level of severity due to what processes are being run under "SYSTEM") account on **host** DMZ-MSEXCHANGE-2013. 
 
-- What: Sudden increase of commands associated with domain discovery and information gathering. Suspicious processes:
+- **What:** Sudden increase of commands associated with domain discovery and information gathering. Suspicious processes:
   - **Grandparent**: "w3wp.exe" is an IIS Worker Process, it **executes code on behalf of incoming HTTP/S requests**. Research shows it would mean that the attack would've began through the web layer through sources via uploaded webshell, RCE exploit in web app, or command injection through vulnerable API endpoint. In short, seeing w3wp.exe as a grandparent process reveals an indicator of webshell or web-exploited host.
     - A web-facing IIS is an Internet Information Services web server that accepts requests from remote clients over a network (LAN/WAN/Internet) and serves web content or applications, such as static pages and downloads
   - Next comes the **Parent Process** being "revshell.exe", showing signs of attacker payload via web exploit
   - Lastly, **Source Porcess** being "cmd.exe", this means that revshell.exe launched cmd.exe (payload opening command prompt, establishing a connection back to the attacker (reverse shell)). This is source because it is the operational interface of the attacker.
 
-- When: 19:56
+- **When:** 19:56
 
-- Where: Host in DMZ (DMZ-MSEXCHANGE-2013) (Windows Server 2012 R2)
+- **Where:** Host in DMZ (DMZ-MSEXCHANGE-2013) (Windows Server 2012 R2)
   - Research shows that its a server exposed to the internet through the DMZ that bridges external systems to the organizations internal infrastructure. **Because of its placement, if compromized, the attacker cant pivot to the internal network without going through additional firewalls.**
 
-- Why: Web-facing IIS was likely exploited via webshell or RCE which allowed the attacker to launch revshell.exe, thus opening cmd.exe, and utilzing commands to gather intel on the host along with domains **for privilege escalation**. 
+- **Why:** Web-facing IIS was likely exploited via webshell or RCE which allowed the attacker to launch revshell.exe, thus opening cmd.exe, and utilzing commands to gather intel on the host along with domains **for privilege escalation**. 
 
 My report would contain "**At 19:56**, **the host (DMZ-MSEXCHANGE-2013) (Windows Server 2012 R2)** executes sudden commands from C:\Windows\System32\cmd.exe under NT AUTHORITY\SYSTEM. Process cascades from w3wp.exe (IIS), to revshell.exe, to cmd.exe, indicating that the web server was likley the initial exploited vulnerability which led to a revershe shell being used. The invoked commands are consistent with characteristics such as reconnaissance for privilege escalation. Immediate containtment suggested."
 
