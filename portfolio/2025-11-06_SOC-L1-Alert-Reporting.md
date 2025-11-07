@@ -87,7 +87,7 @@ My report would contain "**At 19:56**, **the host (DMZ-MSEXCHANGE-2013) (Windows
 Analysis of process lineage showed that the IIS worker process (w3wp.exe) spawned an unsigned executable (revshell.exe) located in C:\Users\Public\, which in turn launched cmd.exe. This indicates a web exploitation chain leading to remote code execution and interactive command access. The grandparent relationship to w3wp.exe confirmed the initial access vector as a web server compromise.”
 ##
 
-**OPTIONAL FIX**
+## OPTIONAL FIX
 
 **For simplicity**, grammarly suggests "At 19:56, DMZ-MSEXCHANGE-2013 showed anomalous command execution for domain discovery (whoami, net user, Get-ADUser, nltest), launched from cmd.exe with a parent revshell.exe and grandparent w3wp.exe, indicating likely web-based compromise and reverse-shell activity; immediate containment and evidence capture are required."
 
@@ -98,8 +98,9 @@ Analysis of process lineage showed that the IIS worker process (w3wp.exe) spawne
 4. Get a foothold: The dropped program spawns a command shell on the server (the attacker gets remote interactive access). That explains the process chain you saw: w3wp.exe → revshell.exe → cmd.exe.
 5. Discovery: From that shell, the attacker runs commands to learn about the environment (whoami, net user, Get-ADUser, nltest) to find domain accounts, privileges, and possible paths to move laterally.
 6. Next steps for attacker: They would look for credentials, sensitive services, or other hosts they can access — then attempt privilege escalation, lateral movement, or data exfiltration.
+##
 
-**MISTAKE I LEARNED TO AVOID:**
+## MISTAKES I LEARNED TO AVOID:
 
 (This is from a previous report)
 - Vague on causality
