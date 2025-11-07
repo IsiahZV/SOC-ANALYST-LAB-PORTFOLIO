@@ -85,7 +85,7 @@ My report would contain "**At 19:56**, **the host (DMZ-MSEXCHANGE-2013) (Windows
 
 ## Summary
 Analysis of process lineage showed that the IIS worker process (w3wp.exe) spawned an unsigned executable (revshell.exe) located in C:\Users\Public\, which in turn launched cmd.exe. This indicates a web exploitation chain leading to remote code execution and interactive command access. The grandparent relationship to w3wp.exe confirmed the initial access vector as a web server compromise.”
-##
+
 
 ## OPTIONAL FIX
 
