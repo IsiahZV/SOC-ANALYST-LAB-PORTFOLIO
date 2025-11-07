@@ -90,13 +90,21 @@ The picture provided shows an array of commands that would relate to discovery. 
 My report would contain "**At 19:56**, **the host (DMZ-MSEXCHANGE-2013) (Windows Server 2012 R2)** executes sudden commands from C:\Windows\System32\cmd.exe under NT AUTHORITY\SYSTEM. Process cascades from w3wp.exe (IIS), to revshell.exe, to cmd.exe, indicating that the web server was likley the initial exploited vulnerability which led to a revershe shell being used. The invoked commands are consistent with characteristics such as reconnaissance for privilege escalation. Immediate containtment suggested."
 
 
+## Optional Fix
+
+**For simplicity**, grammarly suggests "At 19:56, DMZ-MSEXCHANGE-2013 showed anomalous command execution for domain discovery (whoami, net user, Get-ADUser, nltest), launched from cmd.exe with a parent revshell.exe and grandparent w3wp.exe, indicating likely web-based compromise and reverse-shell activity; immediate containment and evidence capture are required."
+
+
 ## Summary
 Analysis of process lineage showed that the IIS worker process (w3wp.exe) spawned an unsigned executable (revshell.exe) located in C:\Users\Public\, which in turn launched cmd.exe. This indicates a web exploitation chain leading to remote code execution and interactive command access. The grandparent relationship to w3wp.exe confirmed the initial access vector as a web server compromise.”
 
 
-## Optional Fix
+## ⚠️ Mistakes I Learned to Avoid:
 
-**For simplicity**, grammarly suggests "At 19:56, DMZ-MSEXCHANGE-2013 showed anomalous command execution for domain discovery (whoami, net user, Get-ADUser, nltest), launched from cmd.exe with a parent revshell.exe and grandparent w3wp.exe, indicating likely web-based compromise and reverse-shell activity; immediate containment and evidence capture are required."
+(This is from a previous report)
+- Vague on causality
+- Fix: explicitly tie the process lineage to a likely web exploit and state recommended next steps
+- Avoid passive language
 
 
 # 🧠 Practical Series of Events
@@ -107,12 +115,5 @@ Analysis of process lineage showed that the IIS worker process (w3wp.exe) spawne
 5. Discovery: From that shell, the attacker runs commands to learn about the environment (whoami, net user, Get-ADUser, nltest) to find domain accounts, privileges, and possible paths to move laterally.
 6. Next steps for attacker: They would look for credentials, sensitive services, or other hosts they can access — then attempt privilege escalation, lateral movement, or data exfiltration.
 
-
-## ⚠️ Mistakes I Learned to Avoid:
-
-(This is from a previous report)
-- Vague on causality
-- Fix: explicitly tie the process lineage to a likely web exploit and state recommended next steps
-- Avoid passive language
 
 # END
