@@ -91,6 +91,7 @@ Analysis of process lineage showed that the IIS worker process (w3wp.exe) spawne
 **For simplicity**, grammarly suggests "At 19:56, DMZ-MSEXCHANGE-2013 showed anomalous command execution for domain discovery (whoami, net user, Get-ADUser, nltest), launched from cmd.exe with a parent revshell.exe and grandparent w3wp.exe, indicating likely web-based compromise and reverse-shell activity; immediate containment and evidence capture are required."
 
 **MISTAKE I LEARNED TO AVOID:**
+
 (This is from a previous report)
 - Vague on causality
 - Fix: explicitly tie the process lineage to a likely web exploit and state recommended next steps
