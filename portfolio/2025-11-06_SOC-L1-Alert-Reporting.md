@@ -9,6 +9,7 @@
 
 # Reporting Guide
 This section covers converting data into information to write an accurate report before submitting to an L2 analyst
+
 **Task 1:** According to the SOC dashboard, which user email leaked the sensitive document?
 
 - In reference to the picture, the description states that the user shared an important document outside of the organization which violates corporate policies.
