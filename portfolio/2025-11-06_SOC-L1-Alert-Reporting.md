@@ -71,7 +71,7 @@ The picture provided shows an array of commands that would relate to discovery. 
   - **Grandparent**: "w3wp.exe" is an IIS Worker Process, it **executes code on behalf of incoming HTTP/S requests**. Research shows it would mean that the attack would've began through the web layer through sources via uploaded webshell, RCE exploit in web app, or command injection through vulnerable API endpoint. In short, seeing w3wp.exe as a grandparent process reveals an indicator of webshell or web-exploited host.
     - A web-facing IIS is an Internet Information Services web server that accepts requests from remote clients over a network (LAN/WAN/Internet) and serves web content or applications, such as static pages and downloads
   - Next comes the **Parent Process** being "revshell.exe", showing signs of attacker payload via web exploit
-  - Lastly, **Source Porcess** being "cmd.exe", this means that revshell.exe launched cmd.exe (payload opening command prompt, establishing a connection back to the attacker (reverse shell)). This is source because it is the operational interface of the attacker.
+  - Lastly, **Source Porcess** being "cmd.exe", this means that revshell.exe launched cmd.exe (payload opening command prompt, establishing a connection back to the attacker (reverse shell)).
 
 - **When:** 19:56
 
