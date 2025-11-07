@@ -15,7 +15,9 @@ This section covers converting data into information to write an accurate report
 - **Source User Email** shows "m[.]boslan@tryhackme[.]thm"
 <img width="1440" height="806" alt="Screenshot 2025-11-06 at 4 13 51 PM" src="https://github.com/user-attachments/assets/b04569de-97a7-45b6-b9aa-96665538aebe" />
 
+
 ##
+
 
 **Task 2:** Looking at the new alerts, who is the "sender" of the suspicious, likely phishing email?
 
@@ -24,7 +26,9 @@ This section covers converting data into information to write an accurate report
 
 <img width="1440" height="806" alt="Screenshot 2025-11-06 at 4 22 19 PM" src="https://github.com/user-attachments/assets/28423c35-52c8-44d1-855f-c9ec74988980" />
 
+
 ##
+
 
 **Task 3:** Open the phishing alert, read its details, and try to understand the activity. Using the Five Ws template, what flag did you receive after writing a good report?
 
@@ -49,7 +53,9 @@ This section goes over communication with L2 whether sending alerts or requestin
 - E.Fleming
 <img width="830" height="380" alt="Screenshot 2025-11-06 at 5 13 26 PM" src="https://github.com/user-attachments/assets/adfbf52e-acbe-47b7-80dc-8e8ca2f20119" />
 
+
 ##
+
 
 **Task 2:** What flag did you receive after correctly escalating the alert from the previous task to L2? 
 
@@ -58,6 +64,7 @@ What this is saying is, because I wrote the report while assigning the alert to 
 <img width="830" height="486" alt="Screenshot 2025-11-06 at 5 16 30 PM" src="https://github.com/user-attachments/assets/155cbede-4915-45b1-b872-476ff8e7c547" />
 
 ##
+
 
 **Task 3:** Now, investigate the second new alert in the queue and provide a detailed alert comment. Then, decide if you need to escalate this alert and move on according to the process.
 
@@ -87,25 +94,25 @@ My report would contain "**At 19:56**, **the host (DMZ-MSEXCHANGE-2013) (Windows
 Analysis of process lineage showed that the IIS worker process (w3wp.exe) spawned an unsigned executable (revshell.exe) located in C:\Users\Public\, which in turn launched cmd.exe. This indicates a web exploitation chain leading to remote code execution and interactive command access. The grandparent relationship to w3wp.exe confirmed the initial access vector as a web server compromise.”
 
 
-## OPTIONAL FIX
+## Optional Fix
 
 **For simplicity**, grammarly suggests "At 19:56, DMZ-MSEXCHANGE-2013 showed anomalous command execution for domain discovery (whoami, net user, Get-ADUser, nltest), launched from cmd.exe with a parent revshell.exe and grandparent w3wp.exe, indicating likely web-based compromise and reverse-shell activity; immediate containment and evidence capture are required."
 
-# Practical Series of Events
+
+# 🧠 Practical Series of Events
 1. Reconnaissance: The attacker scans public-facing sites and finds mail.example-corp[.]com (a web interface hosted by the Exchange server in the DMZ). They poke around the site to see what inputs exist (file uploads, search boxes, admin pages, API endpoints).
 2. Find a weakness: The attacker discovers a web app weakness (for example: a poorly validated file upload endpoint, or a vulnerable plugin/module in the web stack) that allows them to get the web server to run code or to upload a file to a location the web service can execute.
 3. Drop a payload: Using that weakness, they get a small program or script onto the server (a backdoor or "reverse shell" scaffold). The web service (w3wp.exe) runs the new file because the server accepts and executes it due to the vulnerability.
 4. Get a foothold: The dropped program spawns a command shell on the server (the attacker gets remote interactive access). That explains the process chain you saw: w3wp.exe → revshell.exe → cmd.exe.
 5. Discovery: From that shell, the attacker runs commands to learn about the environment (whoami, net user, Get-ADUser, nltest) to find domain accounts, privileges, and possible paths to move laterally.
 6. Next steps for attacker: They would look for credentials, sensitive services, or other hosts they can access — then attempt privilege escalation, lateral movement, or data exfiltration.
-##
 
-## MISTAKES I LEARNED TO AVOID:
+
+## ⚠️ MISTAKES I LEARNED TO AVOID:
 
 (This is from a previous report)
 - Vague on causality
 - Fix: explicitly tie the process lineage to a likely web exploit and state recommended next steps
 - Avoid passive language
-##
 
 # END
