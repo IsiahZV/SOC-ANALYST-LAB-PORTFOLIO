@@ -108,7 +108,7 @@ Analysis of process lineage showed that the IIS worker process (w3wp.exe) spawne
 6. Next steps for attacker: They would look for credentials, sensitive services, or other hosts they can access — then attempt privilege escalation, lateral movement, or data exfiltration.
 
 
-## ⚠️ MISTAKES I LEARNED TO AVOID:
+## ⚠️ Mistakes I Learned to Avoid:
 
 (This is from a previous report)
 - Vague on causality
