@@ -10,6 +10,10 @@
 **Environment:** TryHackMe – “Introduction to Phishing” room  
 **Tools Used:** Microsoft Sentinel
 
+📄 Task documentation will be posted at the very end
+
+Please note that although the day is accurate, the time of generated data will be significantly different in Microsoft Sentinel compared to real time dashboard.
+
 
 ## Foundation
 
@@ -21,30 +25,39 @@ I'll start off by recalling the report format:
 - Why: the reasoning for your final verdict
 
 
-## Alert Triage Playbook
-
-- **Initial Alert Review:**
-
-Access the SOC Dashboard: Open the SOC dashboard and review the new alerts
-
-Assign Alert to Yourself: Add the first (earliest) alert to the list of assigned alerts
-
-Understand Alert Logic: Review the alert description and understand its logic
-
-Review Alert Details: Look at the IOCs provided in the alert, like IPs and domains
-
-- **Investigate in the SIEM:**
-
-Access the SIEM: Open the "SIEM" tool to access raw security events that triggered the alert
-
-Query Related Logs: Perform searches to gather more context and build the activity timeline
-
-Use Analyst VM: From the "Analyst VM", open the TryDetectThis app to check the threat score of found indicators
-
-Correlate and Validate: Correlate the alert data with other data sources to validate the credibility of the alert
-
 # Lab Begin
 
 Starting off, I get my first alert
 
 <img width="1440" height="818" alt="Screenshot 2025-11-10 at 5 55 42 PM" src="https://github.com/user-attachments/assets/d6e3b8d4-ba02-4d68-ad69-d0474f06482c" />
+
+
+
+
+
+
+
+
+
+
+## Alert Triage Playbook
+
+**INITIAL ALERT REVIEW:**
+
+- Access the SOC Dashboard: Open the SOC dashboard and review the new alerts
+
+- Assign Alert to Yourself: Add the first (earliest) alert to the list of assigned alerts
+
+- Understand Alert Logic: Review the alert description and understand its logic
+
+- Review Alert Details: Look at the IOCs provided in the alert, like IPs and domains
+
+**INVESTIGATE IN THE SIEM:**
+
+- Access the SIEM: Open the "SIEM" tool to access raw security events that triggered the alert
+
+- Query Related Logs: Perform searches to gather more context and build the activity timeline
+
+- Use Analyst VM: From the "Analyst VM", open the TryDetectThis app to check the threat score of found indicators
+
+- Correlate and Validate: Correlate the alert data with other data sources to validate the credibility of the alert
