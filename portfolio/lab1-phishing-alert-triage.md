@@ -10,7 +10,6 @@
 **Environment:** TryHackMe – “Introduction to Phishing” room  
 **Tools Used:** Microsoft Sentinel
 
-##
 
 ## Foundation
 
@@ -20,6 +19,7 @@ I'll start off by recalling the report format:
 - When: When exactly did the suspicious activity start and ended
 - Where: Which device, IP, or website was involved in the alert
 - Why: the reasoning for your final verdict
+
 
 ## Alert Triage Playbook
 
