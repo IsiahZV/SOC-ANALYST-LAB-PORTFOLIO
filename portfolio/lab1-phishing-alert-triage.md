@@ -24,6 +24,7 @@ I'll start off by recalling the report format:
 ## Alert Triage Playbook
 
 **Initial Alert Review:**
+
 Access the SOC Dashboard: Open the SOC dashboard and review the new alerts
 
 Assign Alert to Yourself: Add the first (earliest) alert to the list of assigned alerts
@@ -33,6 +34,7 @@ Understand Alert Logic: Review the alert description and understand its logic
 Review Alert Details: Look at the IOCs provided in the alert, like IPs and domains
 
 **Investigate in the SIEM:**
+
 Access the SIEM: Open the "SIEM" tool to access raw security events that triggered the alert
 
 Query Related Logs: Perform searches to gather more context and build the activity timeline
