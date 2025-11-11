@@ -33,10 +33,12 @@ I'll start off by recalling the report format:
 
 The alert queue generates five alerts, four of which are medium and one being high.
 
+
 <img width="1440" height="652" alt="Screenshot 2025-11-10 at 6 30 37 PM" src="https://github.com/user-attachments/assets/ea414124-5b1b-4598-9c97-e514989e5746" />
 
 
 To begin, I'll assign the highest one to myself and make an assessment of whether TP or FP based on the given alert data.
+
 
 <img width="1100" height="537" alt="Screenshot 2025-11-10 at 6 33 11 PM" src="https://github.com/user-attachments/assets/1147a22d-f736-4cd3-a488-73740af40306" />
 
@@ -45,15 +47,32 @@ To begin, I'll assign the highest one to myself and make an assessment of whethe
 - User attempted to access external URL which was blocked by firewall rules
 - To better understand the type of website the user tried to go to, I will use VirusTotal to 
 
-- WHO: Source IP -> 10[.]20[.]2[.]17
+- **WHO:** Source IP -> 10[.]20[.]2[.]17
   - To get more info on who's behind this Source IP, I used the Employee Information Doc and concluded that it belongs to Hannah Harris (h.harris@thetrydaily.thm) from the Human Resources department.
-- WHAT: User attempted to go blocked website 
-- WHEN: Nov 10th 23:28
-- WHERE: Destination IP -> 67[.]199[.]248[.]11
+- **WHAT:** User attempted to go blocked website 
+- **WHEN:** Nov 10th 23:28
+- **WHERE:** Destination IP (Serving IP of URL) -> 67[.]199[.]248[.]11
   - Domain -> http://bit[.]ly/3sHkX3da12340
-- Why: To discover this, I have to utilze the MS Sentinel SIEM logs where Hannah Harris is in communication or a ricipient to give some context.
+  - VirusTotal shows at least one vedor marking this URL / IP as malicious. The IP especially has a bunch of malicious files that communicate with this IP address.
+- **Why:** To discover this, I have to utilze the MS Sentinel SIEM logs where Hannah Harris is in communication or a ricipient to give some context.
+
+
+<img width="1440" height="783" alt="Screenshot 2025-11-10 at 6 53 29 PM" src="https://github.com/user-attachments/assets/192b21e5-c08c-4d1d-9d9f-c38c7d038d25" />
 
  
+Here, I see a sender "urgents@amazon[.]biz" and the ricipient of interest being Hannah Harris. Additionally, the attached shortened bit.ly URL reads the exact same from the alert. The rest of the message tries to invoke a sense of urgency by stating that the package will be returned to sender if not heard from.
+
+The **Why** could be stated as: Fake amazon account promotes sense of urgency and attaches malicious bit.ly url
+
+
+- I'll confirm that the alert is a **true positive** and that the alert doesn't require escalation.
+Luckily, they apply a report format that I can fill out.
+
+
+
+
+
+
 
 
 
