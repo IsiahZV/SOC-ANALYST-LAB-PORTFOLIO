@@ -9,7 +9,7 @@
 
 **Environment:** TryHackMe – “Introduction to Phishing” room  
 **Tools Used:** Microsoft Sentinel
-
+##
 
 📄 Task documentation regarding company info and asset inventory will be posted at the very end
 
