@@ -66,7 +66,17 @@ The **Why** could be stated as: Fake amazon account promotes sense of urgency an
 
 
 - I'll confirm that the alert is a **true positive** and that the alert doesn't require escalation.
-Luckily, they apply a report format that I can fill out.
+##
+Note that I'm now attending this lab on a different day so date and time may be different in the report. Time will show November 12th, 00:10 (time of alert) although today's current date is the 11th.
+The adjusted email time is Nov 12th, 12:07am.
+##
+
+I'll write:
+"On November 12th, 00:07, Hannah Harris (h.harris@thetrydaily.thm) from the Human Resources department  received a phishing email from a fake amazon email account with the name "urgents@amazon.biz", containing a message that attempts to invoke a sense of urgency in reference to a missed package. The email contained a shortened link with the domain being " http://bit[.]ly/3sHkX3da12340" and hosted by a malicious IP address ( 67[.]199[.]248[.]11), in which Hannah clicked which redirected her to a blocked website due to our firewall rules. 
+
+Ensure this user goes over phishing awareness."
+
+<img width="1060" height="690" alt="Screenshot 2025-11-11 at 7 36 32 PM" src="https://github.com/user-attachments/assets/d20d1b7f-3b31-47d8-8d82-33b27f2bd6a0" />
 
 
 
