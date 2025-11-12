@@ -119,7 +119,7 @@ Onto alert ID 8818, @22:22
 
 <img width="1440" height="769" alt="Screenshot 2025-11-12 at 5 56 52 PM" src="https://github.com/user-attachments/assets/84a8e01a-b2d3-4a87-9684-2fc92e2ca459" />
 
-The URL in question for the alert is "https://hrconnex.thm/onboarding/15400654060/j.garcia"
+The URL in question for the alert is "https://hrconnex[.]thm/onboarding/15400654060/j[.]garcia"
 - TryDetectThis verifies URL as clean
 
 <img width="1440" height="769" alt="Screenshot 2025-11-12 at 6 01 14 PM" src="https://github.com/user-attachments/assets/61b51b6b-d0a2-497b-971b-e5fda6f012a4" />
