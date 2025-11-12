@@ -78,9 +78,14 @@ Ensure this user goes over phishing awareness."
 
 <img width="1060" height="690" alt="Screenshot 2025-11-11 at 7 36 32 PM" src="https://github.com/user-attachments/assets/d20d1b7f-3b31-47d8-8d82-33b27f2bd6a0" />
 
+##
+
+Now that the alert is closed, I have to assign the earliest alert out of the four receieved. However, there are two alerts that come in at 00:12, they do have the same context in reference to the alert description, this means I have to assess which one is more important in terms of how likely it would impact the CIA triad.
+
+With alert ID 8817, I identified multiple flaws with the e-mail which will be highlighted for easier documentation.
 
 
-
+<img width="1158" height="736" alt="Screenshot 2025-11-11 at 7 48 22 PM" src="https://github.com/user-attachments/assets/84eb9fbc-6be6-413a-8ce8-8b886c674884" />
 
 
 
