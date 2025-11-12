@@ -87,8 +87,18 @@ With alert ID 8817, I identified multiple flaws with the e-mail which will be hi
 
 <img width="1158" height="736" alt="Screenshot 2025-11-11 at 7 48 22 PM" src="https://github.com/user-attachments/assets/84eb9fbc-6be6-413a-8ce8-8b886c674884" />
 
+- **WHO:** Charlotte Allen
+  - Web Development Department
+  - IP: 10.20.2.25
+  - Email: c.allen@thetrydaily.thm
+  - Malicious Email: no-reply@m1crosoftsupport.co
+- **WHAT:** User received malicious phsihing email
+- **WHEN:** 00:10 (Time subject to change due to lab restarting - THM issue)
+- **WHERE:** Destination URL: https://m1crosoftsupport[.]co/login
+  - TryDetectThis confirms URL as malicious
+**WHY:** Likely to get user to input user information into fake site by utilizing scare tactics by sending a fake compromised account alert with a domain and email similar to an authentic one.
 
-
+I will say that its a **true positive**
 
 
 
