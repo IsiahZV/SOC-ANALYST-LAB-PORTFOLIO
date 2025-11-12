@@ -8,12 +8,12 @@
 - Create detailed case reports based on your observations to help your team understand the full scope of alerts and malicious activity.
 
 **Environment:** TryHackMe – “Introduction to Phishing” room  
-**Tools Used:** Microsoft Sentinel
+**Tools Used:** Microsoft Sentinel / Elastic (unable to view firewall rules in Sentinel)
 ##
 
 📄 Task documentation regarding company info and asset inventory will be posted at the very end
 
-Please note that although the day is accurate, the time of generated data will be significantly different in Microsoft Sentinel compared to real time dashboard.
+Please note that the day and times will change throughout the lab as THM has a time limit extension issue and faulty information with some of the optional SIEM tools.
 
 
 ## Foundation
