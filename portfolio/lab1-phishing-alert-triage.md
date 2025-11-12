@@ -98,7 +98,9 @@ With alert ID 8817, I identified multiple flaws with the e-mail which will be hi
   - TryDetectThis confirms URL as malicious
 **WHY:** Likely to get user to input user information into fake site by utilizing scare tactics by sending a fake compromised account alert with a domain and email similar to an authentic one.
 
++---------
 - Going forward I'll be using Elastic due to easier customization and it allows me to view firewall activity while MS Sentinel didn't
++---------
 
 To begin, I will say that its a **true positive** and that it **does require escalation.**
 
