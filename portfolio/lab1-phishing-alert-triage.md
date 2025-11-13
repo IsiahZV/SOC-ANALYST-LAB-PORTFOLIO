@@ -92,11 +92,11 @@ With alert ID 8817, I identified multiple flaws with the e-mail which will be hi
   - IP: 10.20.2.25
   - Email: c.allen@thetrydaily.thm
   - Malicious Email: no-reply@m1crosoftsupport.co
-- **WHAT:** User received malicious phsihing email
+- **WHAT:** User received malicious phishing email
 - **WHEN:** 00:10 (Time subject to change due to lab restarting - THM issue)
 - **WHERE:** Destination URL: https://m1crosoftsupport[.]co/login
   - TryDetectThis confirms URL as malicious
-**WHY:** Likely to get user to input user information into fake site by utilizing scare tactics by sending a fake compromised account alert with a domain and email similar to an authentic one.
+- **WHY:** Likely to get user to input user information into fake site by utilizing scare tactics by sending a fake compromised account alert with a domain and email similar to an authentic one.
 
 **NOTICE**
 - Going forward I'll be using Elastic due to easier customization and it allows me to view firewall activity while MS Sentinel didn't
