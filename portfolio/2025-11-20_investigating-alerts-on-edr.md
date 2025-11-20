@@ -13,6 +13,7 @@
 
 
 
+
 ## Question 1: Which tool was launched by CMD.exe to download the payload on DESKTOP-HR01? 
 
 I'll begin by previewing in the details regarding DESKTOP-HR01 and review the Process Info section
@@ -26,6 +27,7 @@ To summarize, the tool *launched by* CMD.exe was **cURL.exe** as seen in the pro
 
 
 
+
 ## Question 2: What is the absolute path to the downloaded malware on the DESKTOP-HR01 machine?
 
 While remaining in the **Process Info** section, by clicking on the "Install.exe" part of the chain, it reveals on which path was this process ran.
@@ -36,6 +38,7 @@ The path shows: C:\Users\Public\install.exe
 
 
 
+
 ## Question 3: What is the absolute path to the suspicious syncsvc.exe on the WIN-ENG-LAPTOP03 machine?
 
 <img width="1368" height="800" alt="Screenshot 2025-11-20 at 6 22 12 PM" src="https://github.com/user-attachments/assets/712a7c0d-650a-4d7b-aaa7-acc89bef1134" />
@@ -43,9 +46,12 @@ The path shows: C:\Users\Public\install.exe
 The absolute path that syncsvc.exer ran on was: C:\Users\haris.khan\AppData\Local\Temp\syncsvc.exe
 
 
+
+
 ## Question 4: On which URL was the exfiltration attempt being made on WIN-ENG-LAPTOP03?
 
 With the same picture provided, this can be found next to **"Attempted exfil to"**, which would be: https://files-wetransfer[.]com/upload/session/ab12cd34ef56/dump_2025[.]dmp
+
 
 
 
