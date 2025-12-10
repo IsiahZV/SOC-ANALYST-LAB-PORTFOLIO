@@ -74,8 +74,13 @@ To approach this, I can search "source_ip : 238.163.231.224" and then look at th
 - **48**
 
 
-
+##
 # KQL Overview
 ##
+
+## Question 1: Create a search query to filter the logs where Source_Country is the United States and show logs from User James or Albert. How many records were returned?
+
+<img width="1440" height="371" alt="Screenshot 2025-12-10 at 4 34 06 PM" src="https://github.com/user-attachments/assets/7e401358-dd0e-43f0-8420-92dd808b209a" />
+
 
 
