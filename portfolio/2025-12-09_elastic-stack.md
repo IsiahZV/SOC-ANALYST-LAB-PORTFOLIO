@@ -55,7 +55,8 @@ After clicking on the Source_Ip variable, i see that **107.14.1.247** has the mo
 
 For this, to refrain from redundancy (refer to picture from question 1), I selected the tallest green column that happened to be on January 11th. In this timeframe, I selected the **Source_Ip** variable and referenced the first IP address in the Top 5 values.
 
-<img width="1440" height="679" alt="Screenshot 2025-12-09 at 7 06 54 PM" src="https://github.com/user-attachments/assets/6407cbf2-f9fc-43f0-9bb4-4144a29de8a9" />
+<img width="1440" height="679" alt="Screenshot 2025-12-10 at 4 38 27 PM" src="https://github.com/user-attachments/assets/20359ba9-398c-4c5f-a565-b6f93a530d47" />
+
 
 - **172.201.60.191**
 
