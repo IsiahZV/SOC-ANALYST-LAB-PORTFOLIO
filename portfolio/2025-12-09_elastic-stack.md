@@ -57,4 +57,20 @@ For this, to refrain from redundancy (refer to picture from question 1), I selec
 
 <img width="1440" height="679" alt="Screenshot 2025-12-09 at 7 06 54 PM" src="https://github.com/user-attachments/assets/6407cbf2-f9fc-43f0-9bb4-4144a29de8a9" />
 
+- **172.201.60.191**
 
+
+
+## How many connections were observed from IP 238.163.231.224, excluding the New York state?
+
+To approach this, I can search "source_ip : 238.163.231.224" and then look at the values for **source_state** and exclude New York.
+
+<img width="1440" height="679" alt="Screenshot 2025-12-09 at 7 06 54 PM" src="https://github.com/user-attachments/assets/91d85f03-f78d-48f4-84c8-010c0bafa92f" />
+
+<img width="1440" height="679" alt="Screenshot 2025-12-09 at 7 06 54 PM" src="https://github.com/user-attachments/assets/18271795-5c52-454b-9304-6b6a2b4462d6" />
+
+- **48**
+
+
+
+## 
