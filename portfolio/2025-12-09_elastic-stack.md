@@ -75,7 +75,7 @@ To approach this, I can search "source_ip : 238.163.231.224" and then look at th
 
 
 
-##
+
 # KQL Overview
 
 ## Question 1: Create a search query to filter the logs where Source_Country is the United States and show logs from User James or Albert. How many records were returned?
@@ -95,7 +95,7 @@ The tricky part about this is the date formatting, as searching how its displaye
 
 
 
-##
+
 # Creating Visualizations
 
 ## Question 1: Which user was observed with the greatest number of failed attempts?
