@@ -62,13 +62,13 @@ For this, to refrain from redundancy (refer to picture from question 1), I selec
 
 
 
-## How many connections were observed from IP 238.163.231.224, excluding the New York state?
+## Question 6: How many connections were observed from IP 238.163.231.224, excluding the New York state?
 
 To approach this, I can search "source_ip : 238.163.231.224" and then look at the values for **source_state** and exclude New York.
 
-<img width="1440" height="679" alt="Screenshot 2025-12-09 at 7 06 54 PM" src="https://github.com/user-attachments/assets/91d85f03-f78d-48f4-84c8-010c0bafa92f" />
+<img width="1440" height="679" alt="Screenshot 2025-12-10 at 4 31 23 PM" src="https://github.com/user-attachments/assets/2d0695e1-2566-42f3-9445-47f7a5e2ea78" />
 
-<img width="1440" height="679" alt="Screenshot 2025-12-09 at 7 06 54 PM" src="https://github.com/user-attachments/assets/18271795-5c52-454b-9304-6b6a2b4462d6" />
+<img width="1440" height="371" alt="Screenshot 2025-12-10 at 4 34 06 PM" src="https://github.com/user-attachments/assets/c2787673-87da-4a1c-a48b-466bf882baa2" />
 
 - **48**
 
