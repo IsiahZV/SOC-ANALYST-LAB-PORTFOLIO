@@ -79,7 +79,7 @@ When viewing the senders info (From) in the email **header**, I see that they ar
 
 ## What is the sender's email?
 
-Next to the fake Home Depot user mailbox name resides: support@teckbe.com
+Next to the fake Home Depot user mailbox name resides: support[@]teckbe[.]com
 
 
 
