@@ -35,7 +35,7 @@ Three protocols involved in facilitating outgoing and incoming emails are:
 
 <img width="800" height="523" alt="Screenshot 2025-12-23 at 2 36 48 PM" src="https://github.com/user-attachments/assets/aadb8bbf-f40a-4816-a1e0-b64c4d19bfe5" />
 
-- **https://i[.]imgur[.]com/LSWOtDI[.]png**
+- **https[://]i[.]imgur[.]com/LSWOtDI[.]png**
 
 
 
@@ -54,9 +54,47 @@ Three protocols involved in facilitating outgoing and incoming emails are:
 
 <img width="601" height="442" alt="Screenshot 2025-12-23 at 2 50 53 PM" src="https://github.com/user-attachments/assets/466cbaf8-8d99-465d-b354-3887558b6bf3" />
 
-To convert to text from base64, I can decode by using the base64 decode command (Linux), this then has to be made into a pdf
+To convert to text from base64, I can decode by using the base64 decode command (Linux). 
+This then has to be made into a pdf.
 
 <img width="739" height="338" alt="Screenshot 2025-12-23 at 3 35 24 PM" src="https://github.com/user-attachments/assets/a72df130-72a4-4b6a-9490-1923824c808b" />
 
 <img width="739" height="338" alt="Screenshot 2025-12-23 at 3 35 53 PM" src="https://github.com/user-attachments/assets/5a9ff574-8c48-43f5-853f-ae38cec5e2a8" />
 
+- THM{BENIGN_PDF_ATTACHMENT}
+
+##
+
+Analyze the email titled email3.eml within the virtual machine and answer the questions below.
+
+Note: Alexa is the victim, and Billy is the analyst assigned to the case. Alexa forwarded the email to Billy for analysis. 
+
+## What trusted entity is this email masquerading as?
+
+<img width="730" height="435" alt="Screenshot 2025-12-23 at 3 50 16 PM" src="https://github.com/user-attachments/assets/b9c158d4-65aa-40c3-8866-11008209df5a" />
+
+When viewing the senders info (From) in the email **header**, I see that they are attempting to utilize "Home Depot" 
+
+
+
+## What is the sender's email?
+
+Next to the fake Home Depot user mailbox name resides: support@teckbe.com
+
+
+
+## What is the subject line? 
+
+In the **header**, next to subject contains: "Order Placed : Your Order ID OD2321657089291 Placed Successfully"
+
+
+
+## What is the website for the - CLICK HERE URL in a defanged format?
+
+For this, I'll view the source code 
+
+<img width="729" height="610" alt="Screenshot 2025-12-23 at 4 05 32 PM" src="https://github.com/user-attachments/assets/3808289a-134d-48ce-a919-25ab7f547ca6" />
+
+- hxxp[://]t[.]teckbe[.]com
+
+## End
