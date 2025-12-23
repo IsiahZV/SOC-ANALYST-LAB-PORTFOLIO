@@ -66,8 +66,7 @@ This then has to be made into a pdf.
 ##
 
 Analyze the email titled email3.eml within the virtual machine and answer the questions below.
-
-Note: Alexa is the victim, and Billy is the analyst assigned to the case. Alexa forwarded the email to Billy for analysis. 
+ 
 
 ## What trusted entity is this email masquerading as?
 
