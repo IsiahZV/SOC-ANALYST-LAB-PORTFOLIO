@@ -7,7 +7,7 @@
 - Obtain malicious attachments from phishing emails and use malware sandboxes to detonate attachments
 
 **Environment:** TryHackMe – “Phishing Analysis Tools” room  
-**Tools Used:** 
+**Tools Used:** CyberChef, AnyRun
 
 
 # Case 1
