@@ -131,7 +131,7 @@ In the **Threats** section we see exactly that where svchost.exe was utilized in
 
 # Case 3
 **Task: Investigate the analysis and answer the questions below.**
-Link: https://app.any.run/tasks/82d8adc9-38a0-4f0e-a160-48a5e09a6e83
+- Link: https://app.any.run/tasks/82d8adc9-38a0-4f0e-a160-48a5e09a6e83
 
 ## What is this analysis classified as?
 
