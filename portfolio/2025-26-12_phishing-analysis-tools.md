@@ -31,7 +31,7 @@ I've selected to view the source code and search for "From:"
 
 <img width="1273" height="712" alt="Screenshot 2025-12-26 at 5 58 02 PM" src="https://github.com/user-attachments/assets/f276e334-b4b2-4adc-be8f-120600923066" />
 
-- JGQ47wazXe1xYVBrkeDg-JOg7ODDQwWdR@JOg7ODDQwWdR-yVkCaBkTNp.gogolecloud.com
+- JGQ47wazXe1xYVBrkeDg-JOg7ODDQwWdR@JOg7ODDQwWdR-yVkCaBkTNp[.]gogolecloud[.]com
 
 
 
