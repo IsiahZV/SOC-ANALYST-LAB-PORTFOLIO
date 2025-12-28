@@ -153,7 +153,8 @@ At the very top - below "General Info", lies the **File Name**: "CBJ200620039539
 
 ## What domains are listed as malicious? Defang the URLs & submit answers in alphabetical order. (answer: URL1,URL2,URL3)
 
-<img width="1142" height="688" alt="Screenshot 2025-12-28 at 2 56 33 PM" src="https://github.com/user-attachments/assets/73f8f6e7-f304-44b1-a979-2a2f4a4e888f" />
+<img width="1142" height="662" alt="Screenshot 2025-12-28 at 3 02 40 PM" src="https://github.com/user-attachments/assets/826018f8-644a-4ca2-ab81-f491b5b030d4" />
+
 
 - biz9holdings[.]com,findresults[.]site,ww38[.]findresults[.]site
 
