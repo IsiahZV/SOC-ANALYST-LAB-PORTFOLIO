@@ -1,7 +1,11 @@
 # Analyzing Emails With Wireshark
 **Date:** 2025-12-23
 
-**Objective:** 
+**Objective:**
+- Use protocol specific filters and identify where email content lives
+- Gain familiarity with SMTP response codes and what they signal
+- Understand security control validation
+- Conduct artifact analysis by identifying attachments, identifying the encoding type, and client used
 
 **Environment:** TryHackMe – “Phishing Prevention” room  
 **Tools Used:** Wireshark
@@ -67,4 +71,43 @@ When removing a specific status code, I can see all of the other status codes in
 <img width="1440" height="704" alt="Screenshot 2025-12-29 at 7 00 44 PM" src="https://github.com/user-attachments/assets/0995bb36-fbc4-4a84-911d-e8a3202b38d9" />
 
 - 512
+
+
+
+## What is the name of the attachment in packet 270?
+
+<img width="1440" height="704" alt="Screenshot 2025-12-29 at 7 18 04 PM" src="https://github.com/user-attachments/assets/146ca18e-678d-44e1-bcca-2a6c765575ce" />
+
+- document.zip
+
+
+
+## According to the message in packet 270, which Host IP address is not responding, making the message undeliverable?
+
+<img width="1440" height="704" alt="Screenshot 2025-12-29 at 7 18 50 PM" src="https://github.com/user-attachments/assets/a359662f-3983-4c92-ab1d-5008aabdd2c5" />
+
+- 212[.]253[.]25[.]152
+
+
+
+## By filtering for imf, which email client was used to send the message containing the attachment attachment.scr?
+
+<img width="1440" height="704" alt="Screenshot 2025-12-29 at 8 00 20 PM" src="https://github.com/user-attachments/assets/304dbc1d-baf0-42ef-ba7a-702f98696ae8" />
+
+- Microsoft Outlook Express 6.00.2600.0000
+
+
+
+## Which type of encoding is used for this potentially malicious attachment?
+
+<img width="1440" height="704" alt="Screenshot 2025-12-29 at 8 02 51 PM" src="https://github.com/user-attachments/assets/55d84812-bb04-4f1b-abc5-5a08d54ff1ce" />
+
+- base64
+
+
+# End
+
+## Lessons Learned
+
+This lab taught me how to SMTP codes reflect mail server enforcement decisions and how IMF headers and MIME encoding can be used to attribute tooling and analyze potentially malicious attachments.
 
