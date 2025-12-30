@@ -2,7 +2,6 @@
 **Date:** 2025-12-23
 
 **Objective:** 
-- 
 
 **Environment:** TryHackMe – “Phishing Prevention” room  
 **Tools Used:** Wireshark
