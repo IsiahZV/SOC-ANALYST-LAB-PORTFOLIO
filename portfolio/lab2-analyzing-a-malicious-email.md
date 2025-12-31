@@ -82,6 +82,7 @@ Since network communication is disabled in this lab, I have to find a open sourc
 
 ## What is the SPF record for the Return-Path domain?
 **As a starter, SPF basically says who is allowed to send**
+- (i.e., "This email domain should only be coming from Outlook, not Google (gmail), apple (icloud), etc. You should literally only be using Outlook interface to send this mail). 
 
 The email header will only show the SPF result (i.e., pass /fail), and from this, I know that the sending IP was not authorized, meaning that yahoo (check the orange highlight for context) checked DNS and enforced the policy, causing it to fail.
 
