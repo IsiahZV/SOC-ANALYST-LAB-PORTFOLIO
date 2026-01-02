@@ -2,6 +2,11 @@
 **Date:** 2026-01-02
 
 **Objective:**
+- Analyze the email samples provided by your colleagues.
+- Analyze the phishing URL(s) by browsing it using Firefox.
+- Retrieve the phishing kit used by the adversary.
+- Use CTI-related tooling to gather more information about the adversary.
+- Analyze the phishing kit to gather more information about the adversary.
 
 
 **Environment:** TryHackMe – “Snapped Phish-ing Line” room  
