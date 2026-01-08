@@ -28,3 +28,22 @@ After reviewing all .eml files given, the user "William McClean" is the only per
 
 
 ## What email address was used by the adversary to send the phishing emails?
+
+Using the previous picture as reference, by looking at the "From" part of the header, there is:
+- Accounts.Payable@groupmarketingonline.icu
+
+
+
+## What is the redirection URL to the phishing page for the individual Zoe Duncan? (defanged format)
+
+In the email for Zoe Duncan, attached is a .html file, this is pure and basic readable information. I'll download this and cat the file so that I can grep the URL. 
+
+<img width="1221" height="707" alt="Screenshot 2026-01-07 at 6 40 18 PM" src="https://github.com/user-attachments/assets/126ce540-0582-49bc-854c-98926da25594" />
+
+<img width="1221" height="707" alt="Screenshot 2026-01-07 at 7 13 39 PM" src="https://github.com/user-attachments/assets/165b23df-d10d-4554-a96d-a740a662a013" />
+
+Now that I retreivied the URL, I can input this into cyberchef for easy defanging
+
+<img width="1438" height="562" alt="Screenshot 2026-01-07 at 7 15 31 PM" src="https://github.com/user-attachments/assets/c5b1e2d5-9300-42ae-ab82-6f955f8ca9f3" />
+
+
