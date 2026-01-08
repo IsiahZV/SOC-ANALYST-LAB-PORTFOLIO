@@ -46,4 +46,9 @@ Now that I retreivied the URL, I can input this into cyberchef for easy defangin
 
 <img width="1438" height="562" alt="Screenshot 2026-01-07 at 7 15 31 PM" src="https://github.com/user-attachments/assets/c5b1e2d5-9300-42ae-ab82-6f955f8ca9f3" />
 
+Here the defanged URL is:
+- hxxp[://]kennaroads[.]buzz/data/Update365/office365/40e7baa2f826a57fcf04e5202526f8bd/?email=zoe[.]duncan@swiftspend[.]finance&error
 
+
+
+## What is the URL to the .zip archive of the phishing kit? (defanged format)
