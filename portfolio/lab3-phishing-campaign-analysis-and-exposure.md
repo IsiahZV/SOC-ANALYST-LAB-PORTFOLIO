@@ -135,3 +135,15 @@ I'll partially use the command from the sidenote from before as its used to skim
 <img width="1070" height="609" alt="Screenshot 2026-01-12 at 3 48 46 PM" src="https://github.com/user-attachments/assets/1773eb63-9529-47b2-bb60-668ff76f38fe" />
 
 - jamestanner2299@gmail.com
+
+
+
+## What is the hidden flag?
+
+I'd be a liar if I said I didn't get help here. The hint provided that there was something to tweak within the URL, so I figured to add the generic "flag.txt" to the end of /Update365" since the "Update365/office365" directory happened to be an error page. 
+- Long story short, flag.txt goes at the end of /office365
+
+<img width="946" height="217" alt="Screenshot 2026-01-12 at 4 15 16 PM" src="https://github.com/user-attachments/assets/debeec5d-a48c-4e16-90a2-a384d036bd1c" />
+
+To download: wget kennaroads.buzz/data/Update365/office365/flag.txt
+
