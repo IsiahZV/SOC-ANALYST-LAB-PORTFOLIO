@@ -107,9 +107,31 @@ This question implies that a user did interact and submit credentials in the phi
 
 <img width="1155" height="767" alt="Screenshot 2026-01-09 at 2 26 23 PM" src="https://github.com/user-attachments/assets/2715a5ee-3998-4472-abb4-7121571c35e6" />
 
-
+- michael.ascot@swiftspend.finance
 
 **Sidenote** 
-- Global search "grep -R -E "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" Update365" retreived attackers email only
+- After attempting to search for credentials in the archive file, the command for global search "grep -R -E "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" Update365" retreived attackers email only.
 
 
+
+## What was the email address used by the adversary to collect compromised credentials?
+
+For this, I'll be going through files that are named with some sort of aid in context.
+
+After searching, I found strong evidence within the "validation" directory and reading the "submit.php" file.
+
+<img width="1070" height="609" alt="Screenshot 2026-01-12 at 3 40 35 PM" src="https://github.com/user-attachments/assets/59c6ce7b-e82e-46d1-a6d1-f4fb1b317082" />
+
+<img width="1070" height="609" alt="Screenshot 2026-01-12 at 3 41 29 PM" src="https://github.com/user-attachments/assets/254998a9-d2b6-4d14-87a8-6330e2cb0b03" />
+
+- m3npat@yandex.com
+
+
+
+## The adversary used other email addresses in the obtained phishing kit. What is the email address that ends in "@gmail.com"?
+
+I'll partially use the command from the sidenote from before as its used to skim all files containing attributes that can make up an email address and only search for "@gmail.com"
+
+<img width="1070" height="609" alt="Screenshot 2026-01-12 at 3 48 46 PM" src="https://github.com/user-attachments/assets/1773eb63-9529-47b2-bb60-668ff76f38fe" />
+
+- jamestanner2299@gmail.com
