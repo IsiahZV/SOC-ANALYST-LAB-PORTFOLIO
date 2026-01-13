@@ -147,3 +147,19 @@ I'd be a liar if I said I didn't get help here. The hint provided that there was
 
 To download: wget kennaroads.buzz/data/Update365/office365/flag.txt
 
+I'll then input this file into cyberchef to decode the text (note that I did get help on trying to figure out which encoding it was).
+
+<img width="1379" height="546" alt="Screenshot 2026-01-12 at 7 02 49 PM" src="https://github.com/user-attachments/assets/879f52a5-9a94-45a0-b54a-8e5d9180691e" />
+
+The text is reversed yet understandable. Cyberchef can reverse this as well.
+
+<img width="1379" height="546" alt="Screenshot 2026-01-12 at 7 03 38 PM" src="https://github.com/user-attachments/assets/d695e5b9-38db-4dcf-bf54-b18edea3348b" />
+
+- THM{pL4y_w1Th_tH3_URL}
+
+
+
+# End
+
+
+
