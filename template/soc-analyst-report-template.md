@@ -22,6 +22,7 @@
 
 ## Who
 **Which user, account, or process was responsible for the activity**
+
 **- Include:**
   - Username (UPN if available)
   - Hostname / Endpoint name
