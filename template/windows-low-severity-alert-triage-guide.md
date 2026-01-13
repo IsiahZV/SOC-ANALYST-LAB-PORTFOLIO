@@ -86,7 +86,7 @@ These are standard Windows locations. Processes running from or with working dir
 🟡 Legitimate use exists, but attackers also abuse this
 
 
-### ⚠️ Suspicious / High-Risk Directories
+## ⚠️ Suspicious / High-Risk Directories
 Processes executing from or using these as working directories deserve immediate scrutiny.
 
 - User-Writable Locations (High Abuse Rate)
