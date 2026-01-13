@@ -23,16 +23,11 @@
 ## Who
 **Which user, account, or process was responsible for the activity**
 **- Include:**
-
-Username (UPN if available)
-
-Hostname / Endpoint name
-
-User role or department (if relevant)
-
-Logged-in account vs SYSTEM vs service account
-
-Parent process owner (for scripts/executables)
+  - Username (UPN if available)
+  - Hostname / Endpoint name
+  - User role or department (if relevant)
+  - Logged-in account vs SYSTEM vs service account
+  - Parent process owner (for scripts/executables)
 
 **- Example entries:**
 
