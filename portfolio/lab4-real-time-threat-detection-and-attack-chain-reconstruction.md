@@ -13,3 +13,4 @@
 
 ### 📄Personal Assisting Documentation
 
+[SOC Report Guide](template/soc-analyst-report-template.md)
