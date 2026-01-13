@@ -21,7 +21,7 @@
 <img width="1440" height="601" alt="Screenshot 2026-01-13 at 3 49 26 PM" src="https://github.com/user-attachments/assets/00093d46-76ed-43c1-9fe5-ff9767f59dc6" />
 
 
-### Alert 1000
+## Alert 1000
 <img width="1168" height="705" alt="Screenshot 2026-01-13 at 3 51 15 PM" src="https://github.com/user-attachments/assets/ab02e8ee-c9ee-4dd9-9ccb-9742c58fd57a" />
 
 The first alert (1000) appears to be an obvious phishing attempt. From the subject alone, I can strongly assume that this is a true positive. 
