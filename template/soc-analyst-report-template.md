@@ -56,7 +56,9 @@
 
 
 ## When
-**Precise timing of events (consistency is critical)**
+**Precise timing of events**
+
+This lets people know where the adversary may be within the cyber kill chain.
 
 - **Include:**
   - Alert trigger time
@@ -118,3 +120,9 @@
 - IP addresses
 - Domains / URLs
 - Email subjects and attachment names
+
+**Actions Taken & Recommendations**
+- Escalate to L2
+- Isolate endpoint
+- Block IP/Domain
+- Reset credentials
