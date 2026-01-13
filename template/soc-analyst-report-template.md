@@ -90,7 +90,7 @@
 
 
 ## Why
-**Your analysis, verdict, and reasoning (L1-appropriate)**
+**Your analysis, verdict, and reasoning**
 **- Include:**
 
 - Final verdict:
