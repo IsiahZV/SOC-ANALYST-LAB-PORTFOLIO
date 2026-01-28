@@ -27,3 +27,22 @@ This picture is showing 3 of the many other alerts in this .csv file. I see a ho
 
 
 ### How many log entries are present for the internal IP performing internal scanning activity?
+
+For this, the question provides a hint relative to the command to apply: cat log-session-x.csv |cut -d "," -f3 |uniq -c
+I'll apply it to the previous .csv log file
+- For clarification, "-f3" in this command entails selecting the third field and uniq -c removes duplicate lines and groups them all into one.
+- In the picture below, note how the first value is "source.port" and then the IP following. There may be something wrong with how the data rows are presented since "-f2" would be the accurate selection as the second variable after "@timestamp" is "source.ip".
+
+<img width="834" height="318" alt="Screenshot 2026-01-28 at 5 49 13 PM" src="https://github.com/user-attachments/assets/7b61972b-113c-46a8-80c9-088a56eff7d2" />
+
+- 192.168.230.127 has 2276 log entries
+
+
+
+### What is the external IP address that is performing external scanning activity?
+
+<img width="834" height="318" alt="Screenshot 2026-01-28 at 6 07 20 PM" src="https://github.com/user-attachments/assets/0dc0581f-fbae-45e7-97f4-1ffef6fd1cf2" />
+
+In logs both 0 and 1, the generated alerts for the only external IP to be in play here is: 
+- 203.0.113.25
+
