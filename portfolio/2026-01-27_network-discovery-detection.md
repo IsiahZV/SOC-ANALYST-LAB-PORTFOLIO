@@ -46,3 +46,22 @@ I'll apply it to the previous .csv log file
 In logs both 0 and 1, the generated alerts for the only external IP to be in play here is: 
 - 203.0.113.25
 
+
+
+## One of the log files contains evidence of a horizontal scan. Which IP range was scanned? Format X.X.X.X/X
+
+Horizontal scanning has characteristics of having:
+- Same source IP
+- Multiple destination IP
+- Same port
+
+After looking through the logs, and using the command: 
+- cat log-session-2.csv | cut -d "," -f3,4,5,6 | uniq -c
+I was able to filter for the source IP, the source port (which really doesn't matter), the destination IP, and the destination port).
+
+<img width="1147" height="740" alt="Screenshot 2026-01-28 at 6 51 49 PM" src="https://github.com/user-attachments/assets/263a426b-65a6-4fb4-9400-841741d9cc11" />
+<img width="1141" height="198" alt="Screenshot 2026-01-28 at 6 53 13 PM" src="https://github.com/user-attachments/assets/63a25248-0d4f-4685-9322-4d87f272a2c8" />
+
+
+The IP range scanned in this scenario would be 203.0.113.0/24
+
