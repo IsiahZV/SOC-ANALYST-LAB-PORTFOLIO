@@ -57,6 +57,7 @@ Horizontal scanning has characteristics of:
 
 After looking through the logs, and using the command: 
 - cat log-session-2.csv | cut -d "," -f3,4,5,6 | uniq -c
+
 I was able to filter for the source IP, the source port (which really doesn't matter), the destination IP, and the destination port).
 
 <img width="1147" height="740" alt="Screenshot 2026-01-28 at 6 51 49 PM" src="https://github.com/user-attachments/assets/263a426b-65a6-4fb4-9400-841741d9cc11" />
@@ -73,4 +74,17 @@ Vertical scanning has the characteristics of:
 - Same source IP
 - Same destination IP
 - Multiple ports
+
+<img width="1141" height="736" alt="Screenshot 2026-01-28 at 7 16 43 PM" src="https://github.com/user-attachments/assets/2dde9f35-720f-4e28-9478-dc81a0cee016" />
+
+This is shortly after the break I displayed in the last picture. The internal destination IP is the same and has various destination ports.
+
+- 192.168.230.145
+
+
+
+### On one of the IP addresses, only a few ports are scanned which host common services. Which are the ports that are scanned on this IP address? Format: port1, port2, port3 in ascending order.
+
+// cat log-session-2.csv | cut -d "," -f2,3,4,5,6 | grep "192.168.230.1" | uniq -c | head
+
 
