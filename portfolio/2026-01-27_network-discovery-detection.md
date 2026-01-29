@@ -24,7 +24,7 @@ This picture is showing 3 of the many other alerts in this .csv file. I see a ho
 
 - log-session-2.csv
 
-
+##
 
 ### How many log entries are present for the internal IP performing internal scanning activity?
 
@@ -37,7 +37,7 @@ I'll apply it to the previous .csv log file
 
 - 192.168.230.127 has 2276 log entries
 
-
+##
 
 ### What is the external IP address that is performing external scanning activity?
 
@@ -46,11 +46,11 @@ I'll apply it to the previous .csv log file
 In logs both 0 and 1, the generated alerts for the only external IP to be in play here is: 
 - 203.0.113.25
 
+##
 
+### One of the log files contains evidence of a horizontal scan. Which IP range was scanned? Format X.X.X.X/X
 
-## One of the log files contains evidence of a horizontal scan. Which IP range was scanned? Format X.X.X.X/X
-
-Horizontal scanning has characteristics of having:
+Horizontal scanning has characteristics of:
 - Same source IP
 - Multiple destination IP
 - Same port
@@ -64,4 +64,13 @@ I was able to filter for the source IP, the source port (which really doesn't ma
 
 
 The IP range scanned in this scenario would be 203.0.113.0/24
+
+
+
+### In the same log file, there is one IP address on which a vertical scan is performed. Which IP address is this?
+
+Vertical scanning has the characteristics of:
+- Same source IP
+- Same destination IP
+- Multiple ports
 
