@@ -85,6 +85,21 @@ This is shortly after the break I displayed in the last picture. The internal de
 
 ### On one of the IP addresses, only a few ports are scanned which host common services. Which are the ports that are scanned on this IP address? Format: port1, port2, port3 in ascending order.
 
-// cat log-session-2.csv | cut -d "," -f2,3,4,5,6 | grep "192.168.230.1" | uniq -c | head
+Maybe I'm stupid or maybe the question is worded to vaguely (I'm going to go with vague because their hint gives you a command to help you rule out IP addresses based on some alert count) 
+
+The command given is: cat log-session-x.csv |cut -d "," -f5|grep -v "203.0"|grep -v "230.145"|sort|uniq -c
+- f5 in this case extracts the destination port row but instead it pulls from the destination IPs
+- "grep -v" is **excluding** IPs that contain that value (anywhere in the IP really. Use "^" prior to use it as starting) that do not match whats entered in quotations
+
+<img width="1041" height="152" alt="Screenshot 2026-01-29 at 4 42 53 PM" src="https://github.com/user-attachments/assets/7872af7a-6d01-453a-a322-f45e90ac621f" />
+
+This internal destination IP address has appeared in 9 alerts 
+
+The command I used is:
+- cat log-session-2.csv | cut -d "," -f2,3,4,5,6 | grep -w "192.168.230.1" | sort
+
+<img width="1122" height="258" alt="Screenshot 2026-01-29 at 4 58 17 PM" src="https://github.com/user-attachments/assets/b7281d3d-5c2e-43f0-b022-9e73543a7653" />
+
+The ports scanned in ascending order are: 80, 445, 3389
 
 
