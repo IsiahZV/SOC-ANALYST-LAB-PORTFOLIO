@@ -66,7 +66,7 @@ I was able to filter for the source IP, the source port (which really doesn't ma
 
 The IP range scanned in this scenario would be 203.0.113.0/24
 
-
+##
 
 ### In the same log file, there is one IP address on which a vertical scan is performed. Which IP address is this?
 
@@ -81,7 +81,7 @@ This is shortly after the break I displayed in the last picture. The internal de
 
 - 192.168.230.145
 
-
+##
 
 ### On one of the IP addresses, only a few ports are scanned which host common services. Which are the ports that are scanned on this IP address? Format: port1, port2, port3 in ascending order.
 
@@ -102,4 +102,43 @@ The command I used is:
 
 The ports scanned in ascending order are: 80, 445, 3389
 
+##
 
+### Which source IP performs a ping sweep attack across a whole subnet?
+
+Ping sweeps are noted as the sending host sending ICMP packets to the destination. This question is emphasizing that the attacker is trying to see which host is running and will respond, not port services on a specific host.
+
+<img width="1440" height="796" alt="Screenshot 2026-01-30 at 6 57 21 AM" src="https://github.com/user-attachments/assets/b5db6b6a-b3d7-4575-8ff7-1596d169b957" />
+
+Here, I've noted three things.
+- Short incriments of time in between each alert
+- The destination IP being involved is scanned all the way until 192.168.230.254
+- All protocols are ICMP
+
+The source IP that performed this was:
+- 192.168.230.127
+
+##
+
+### The zeek.conn.conn_state value shows the connection state. Using the information provided by this value, identify the type of scan being performed by 203.0.113.25 against 192.168.230.145
+
+<img width="1440" height="796" alt="Screenshot 2026-01-30 at 7 35 54 AM" src="https://github.com/user-attachments/assets/989df2d3-7e62-4a98-9af8-39fdcb9916e1" />
+
+Some characteristics of this scan is:
+- Same source IP -> Same destination IP
+- Source IP targeting different ports on destination IP
+- Short incriments of of time in between each alert
+
+This lab doesnt cover zeek connection values so I did some research and under "zeek.conn_state" the "SO" means a connection attempt seen with no reply.
+
+This would be classified as a:
+- TCP SYN scan
+
+##
+
+### Is there any UDP scanning attempt in the logs? Y/N
+
+<img width="1440" height="796" alt="Screenshot 2026-01-30 at 7 41 14 AM" src="https://github.com/user-attachments/assets/95447868-447e-4256-9468-b70738cdadf8" />
+
+There are no seen instances of scanning activity involving the UDP protocol
+- N
