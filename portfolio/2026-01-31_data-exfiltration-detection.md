@@ -8,7 +8,7 @@
 
 
 **Environment:** TryHackMe – “Data Exfiltration Detection” room  
-**Tools Used:** Wireshark, eSplunk
+**Tools Used:** Wireshark, Splunk
 
 <img width="1440" height="621" alt="Screenshot 2026-02-01 at 7 49 13 AM" src="https://github.com/user-attachments/assets/9ac439cf-d321-448b-99fc-a83e6c42efbb" />
 - Time must be set to "All time" once selecting a file to work in
@@ -52,6 +52,42 @@ To answer this, I'll be filtering for query lengths greater than 30
 ##
 
 ### Which local IP sent the maximum number of suspicious requests?
+For this, I had to mess around with the query a little to include filtering for the suspicious query length size and including the stats for IPs that were involved with querying those domains.
+
+<img width="1440" height="600" alt="Screenshot 2026-02-01 at 12 00 53 PM" src="https://github.com/user-attachments/assets/1ec5157a-803c-4cbc-a383-a4aa088d5cf8" />
+
+- 192.168.1.103 has the most queries to the tunnelcorp.net domain
+
+## FTP Data Exfiltration
+
+### How many connections were observed from the guest account?
+I could use the "ftp.request.command == 'USER'" filter and search through the list of users until guest is found and filter for that, but I found "ftp contains 'guest'" to be efficient.
+
+<img width="1440" height="796" alt="Screenshot 2026-02-01 at 12 38 35 PM" src="https://github.com/user-attachments/assets/eff2019d-8dd6-4fab-9efb-f30778142fc4" />
+
+- 5
 
 
+### Apply the filter; what is the name of the customer-related file exfiltrated from the root account?
+They say "Apply the filter" which is ambiguous, so I've applied the "ftp contains 'STOR'" filter and included "ftp contains 'root'" since there's a present root account in the PCAP.
+
+<img width="1440" height="413" alt="Screenshot 2026-02-01 at 12 54 08 PM" src="https://github.com/user-attachments/assets/62bf40a9-3a7e-4c8f-9e5e-d45e252e4ebc" />
+
+The customer-related file is:
+- customer_data.xlsx
+
+##
+
+### Which internal IP was found to be sending the largest payload to an external IP?
+There's no files ingested in Splunk so I have to mannualy search in Wireshark.
+
+For this, I'll use the "Statistics > Conversation option" 
+
+To clarify, I did filter for all of the other internal IPs before selecting the one I'm showing ahead.
+
+By right clicking the source IP that ends in ".105" I selected "Apply as Filter > Selected > A -> Any" (emphasis on sending).
+
+<img width="1440" height="768" alt="Screenshot 2026-02-01 at 1 58 56 PM" src="https://github.com/user-attachments/assets/5ea3b68b-7d5f-4a13-86fa-6f2f09ff8642" />
+
+This internal IP had the highest percentage of communicating more frequent to the external IP than any other along with the byte sizes
 
