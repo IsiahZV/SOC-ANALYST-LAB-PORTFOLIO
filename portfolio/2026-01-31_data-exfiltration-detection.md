@@ -58,7 +58,7 @@ For this, I had to mess around with the query a little to include filtering for 
 
 - 192.168.1.103 has the most queries to the tunnelcorp.net domain
 
-## FTP Data Exfiltration
+# FTP Data Exfiltration
 
 ### How many connections were observed from the guest account?
 I could use the "ftp.request.command == 'USER'" filter and search through the list of users until guest is found and filter for that, but I found "ftp contains 'guest'" to be efficient.
@@ -83,11 +83,93 @@ There's no files ingested in Splunk so I have to mannualy search in Wireshark.
 
 For this, I'll use the "Statistics > Conversation option" 
 
+<img width="1440" height="768" alt="Screenshot 2026-02-01 at 2 04 59 PM" src="https://github.com/user-attachments/assets/b6959485-990a-49c7-aca0-85e5f1456f66" />
+
 To clarify, I did filter for all of the other internal IPs before selecting the one I'm showing ahead.
 
 By right clicking the source IP that ends in ".105" I selected "Apply as Filter > Selected > A -> Any" (emphasis on sending).
 
 <img width="1440" height="768" alt="Screenshot 2026-02-01 at 1 58 56 PM" src="https://github.com/user-attachments/assets/5ea3b68b-7d5f-4a13-86fa-6f2f09ff8642" />
 
-This internal IP had the highest percentage of communicating more frequent to the external IP than any other along with the byte sizes
+To be fair, I believe this question is asking more about packet amount than size since there were other internal IPs who had sent out larger byte sizes overall, however, IP 192.168.1.105 sent out the most packets out of all.
 
+##
+
+### What is the flag hidden inside the ftp stream transferring the CSV file to the suspicious IP?
+I'll filter for "csv" and follow the tcp stream
+
+<img width="1440" height="768" alt="Screenshot 2026-02-01 at 2 17 32 PM" src="https://github.com/user-attachments/assets/deb39ca2-ea2e-4fd2-a23b-f06885d96885" />
+
+Here, I see "STOR internal_passwords.csv", they are uploading / sending this to the external IP. I also see that the length is 91,
+I can filter for the frame length range (in this case, I'll do ">90" although high 80 seems like a better ballpark number to add slight flexibility)
+
+<img width="1440" height="768" alt="Screenshot 2026-02-01 at 2 35 54 PM" src="https://github.com/user-attachments/assets/621b6ec0-ed1b-4ef6-8fb2-c5259ff69637" />
+
+The length seems to be consistent in only filtering the conversation between the internal host and the external IP
+
+Here, I see "DATA" containing the needed flag.
+
+- THM{ftp_exfil_hidden_flag}
+
+##
+
+# Analyzing Data Exfil via HTTP (Splunk)
+
+### Filtering for POST requests
+Because exfiltration attempts are mainly done on POST requests, filtering for post will be the first approach
+
+<img width="1440" height="768" alt="Screenshot 2026-02-01 at 4 25 01 PM" src="https://github.com/user-attachments/assets/b3849faf-7e17-4f89-b339-4aec50e57911" />
+- 3075 alerts are correlated with the request method
+
+##
+
+### Filtering for average bytes sent out to domains
+
+<img width="1440" height="768" alt="Screenshot 2026-02-01 at 4 27 52 PM" src="https://github.com/user-attachments/assets/13e65d9b-3fc3-4e3c-9017-fe78f760b5bd" />
+
+Here, api.cloudsync-services[.]com receives 654 bytes of data and showing it being done by one transfer
+
+## Wireshark Correlation 
+
+### Isolating with large payloads by byte size
+Here, the internal destination IP (is sending large-sized files to a suspicous external destination IP with the cloudsync domain.
+
+<img width="1440" height="494" alt="Screenshot 2026-02-01 at 4 31 50 PM" src="https://github.com/user-attachments/assets/70452572-6b77-473c-a336-ad4d08beed74" />
+
+##
+
+### Filtering for POST requests
+
+<img width="1440" height="764" alt="Screenshot 2026-02-01 at 4 50 55 PM" src="https://github.com/user-attachments/assets/3587ec06-6980-41d0-bf29-149a5e4d3aa8" />
+
+Here its important to know baseline of typical communication between internal and external host and what outright is a suspicious number in terms of frame length, in this case, I have to filter for lengths greater than 500.
+
+##
+
+### Filtering for questionable frame lengths
+
+<img width="1440" height="563" alt="Screenshot 2026-02-01 at 4 54 06 PM" src="https://github.com/user-attachments/assets/24902b64-64d7-420f-8954-5281a13d4126" />
+
+<img width="1440" height="232" alt="Screenshot 2026-02-01 at 4 54 38 PM" src="https://github.com/user-attachments/assets/eb0d2981-d708-4b2c-958c-3750f56966df" />
+At this point, the current packet is matching with the alert from the http log in splunk
+
+## Following TCP streams to read ASCII text
+
+I'll use the options "Follow > TCP stream"
+<img width="1440" height="770" alt="Screenshot 2026-02-01 at 4 55 59 PM" src="https://github.com/user-attachments/assets/5692c05c-deb7-4dbf-9551-40c6e4cee1fe" />
+
+##
+
+# Analyzing Data Exfil via ICMP
+
+Its noted that ICMP tends to be more simple in analysis due to mainly focusing on the characteristics of the pings, questionable codes used, the size (length), and consistency of spacing / amount. 
+
+Anything above 64 bytes per ping is questionable but the higher the amount, the more obvious it is. In this case, filtering for a size more than 100 lead me to receive results.
+
+<img width="1440" height="770" alt="Screenshot 2026-02-01 at 5 49 58 PM" src="https://github.com/user-attachments/assets/9ebf66a2-957c-4c9e-bc5d-5c0913198c37" />
+
+Here, its clear that data such as user credentials are being transmitted.
+
+<img width="1440" height="454" alt="Screenshot 2026-02-01 at 5 51 34 PM" src="https://github.com/user-attachments/assets/c1d96d76-5ef9-4496-a04b-2ecdee5253d0" />
+
+The hidden flag lies in the last packet of this filter
