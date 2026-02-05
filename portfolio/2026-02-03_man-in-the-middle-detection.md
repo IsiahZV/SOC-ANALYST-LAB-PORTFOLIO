@@ -123,3 +123,70 @@ This can be conuted manually from the previous picture, but again, for the sake 
 
 
 # DNS Spoofing
+
+**📎 The PCAP used in this is the same used in the previous section that went over ARP**
+- DNS spoofing happens by the attacker doing something similar to ARP poisoning, where there may be real DNS responses sent mixed with a malicious response in an attempt of "DNS cache poisoning" after the victim makes a query to a website. Like ARP poisoning attempts, there may be traces of unsolicited responses or where responses don't come from the expected source.
+##
+
+### Narrowing DNS Traffic
+
+<img width="1440" height="793" alt="Screenshot 2026-02-05 at 4 59 10 PM" src="https://github.com/user-attachments/assets/9c2ce7d4-ace9-4c0c-ab70-96a60a3da6cc" />
+
+##
+
+### Filtering Legit Traffic
+
+<img width="1440" height="500" alt="Screenshot 2026-02-05 at 5 05 33 PM" src="https://github.com/user-attachments/assets/ee994104-1d30-4413-bd6c-fa973738eb8a" />
+- What this filter is looking for is responses where the Google DNS server IP address is the source dishing out the responses to those querying
+
+##
+
+### Filtering For DNS Responses
+
+<img width="1440" height="500" alt="Screenshot 2026-02-05 at 5 08 39 PM" src="https://github.com/user-attachments/assets/cc6d058a-565b-41c5-b441-6438e3d01b27" />
+- Now filtering for all responses, on packet 1124 there's a private IP replying to another IP about the destination of an acme corp login page. One packet later (1125), theres a reply from the DNS server IP with a different IP for the acme corp login page.
+- This now becomes a domain of interest
+
+##
+
+### DNS Requests For Domains
+
+<img width="1440" height="500" alt="Screenshot 2026-02-05 at 5 41 48 PM" src="https://github.com/user-attachments/assets/bc3da334-9f99-4527-bf0c-6d0854228acd" />
+
+This filter searches for the specific domain that a user has queried. Each box highlighted contains a request and a response to and from the DNS server.
+
+##
+
+### Filtering For DNS Responses Coming From Non-DNS Server
+
+<img width="1440" height="242" alt="Screenshot 2026-02-05 at 5 49 32 PM" src="https://github.com/user-attachments/assets/c74e7194-a2ea-48cc-ba9b-40cf025bcd3f" />
+
+Here, there's only 2 responses that originate from an IP other than the DNS server
+
+
+## How many DNS responses were observed for the domain corp-login.acme-corp.local?
+
+For starters, I'll begin with "dns.flags.response ==1" to filter for responses and use "dns.qry.name =='<given domain>'". I believe it doesn't matter if the response orginated from a legit source or if it was from the malicious user, just the total response count pertaining to the domain.
+
+<img width="1440" height="790" alt="Screenshot 2026-02-05 at 5 55 07 PM" src="https://github.com/user-attachments/assets/6afa26d0-3813-4ffe-b1fb-c2654965f0f6" />
+
+
+## How many DNS requests were observed from the IPs other than 8.8.8.8?
+
+To filter for requests, I've set "dns.flags.response" to 0 and for IPs other than 8.8.8.8, I've used "ip.src !==8.8.8.8"
+
+<img width="1440" height="790" alt="Screenshot 2026-02-05 at 6 00 45 PM" src="https://github.com/user-attachments/assets/389b9b70-d317-4e1b-abd3-65590f025541" />
+
+### ⚠️ Mental Note:
+Maybe I've made a mistake here or maybe its the question but the question states request, meaning that it isn't a response and does imply searching, as a response gives the user making the domain query (request) the information. Either way, I've set the flag to "2" and have gotten the supposed answer of 2. I love the ambiguity of tryhackme so much that it makes me want to rip my head off.
+
+- 2 requests
+
+## What IP did the attacker’s forged DNS response return for the domain?
+
+I can just reference the previous picture and walkthrough to see that the IP's forged DNS response is:
+- 192.168.10.55
+
+
+
+# SSL Stripping
