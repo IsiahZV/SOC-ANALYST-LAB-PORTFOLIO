@@ -190,3 +190,64 @@ I can just reference the previous picture and walkthrough to see that the IP's f
 
 
 # SSL Stripping
+
+### Filtering for SSL Traffic
+
+<img width="1440" height="790" alt="Screenshot 2026-02-09 at 7 47 51 PM" src="https://github.com/user-attachments/assets/bfe6ea30-7d60-46bd-80b0-1df830f2aea1" />
+- Basic SSL traffic filtering
+
+##
+
+### Filtering for Specific SSL Traffic of a Server
+
+<img width="1440" height="790" alt="Screenshot 2026-02-09 at 7 51 42 PM" src="https://github.com/user-attachments/assets/738f646f-7fe7-45e9-9069-c5350164ccb7" />
+
+- Whats happening here is the filter is looking for all of the times the initial message was sent by the client to the server to start the TSL process.
+  - TLS handshake type 1 refers to "Client Hello", where the client wants to establish connection which should expect in return from the server, a "Server Hello"
+  - In the early stages of this packet with this filter applied, TLSv1.2 is the established protocol
+ 
+##
+
+### Confirmationn of DNS Redirection Prior to SSL Stripping
+
+Ok so remember when the attacker was performing DNS spoofing which was to trick the DNS cache (cache poisoning, similar to ARP poisoning) where the attacker sends unwanted responses amidst query requests basically saying "the website you're looking for is at this malicious IP" in the midst of the real responses? 
+
+This filter is to confirm by DNS - the suspicions that the malicious IP that was sending out those responses was able to later perform SSL stripping. 
+
+<img width="1440" height="201" alt="Screenshot 2026-02-09 at 8 06 48 PM" src="https://github.com/user-attachments/assets/c89a1691-e304-472d-8522-ecb48206bb1a" />
+
+- I see here that the IP ending in .55 is telling the requesting IP requesting that the domain resides at the attackers IP (.55)
+
+##
+
+### Verifying TLS Isn't Utilized
+
+<img width="1440" height="201" alt="Screenshot 2026-02-09 at 8 16 33 PM" src="https://github.com/user-attachments/assets/90414818-9d53-4a6c-b05e-c4fca64299b0" />
+
+<img width="1440" height="590" alt="Screenshot 2026-02-09 at 8 17 34 PM" src="https://github.com/user-attachments/assets/eb9fe616-68e7-4705-91ef-b2f419a7b6c9" />
+
+- Here, I see the user IP ending in .10 is interacting with the malicious server from the IP ending in .55
+- In the HTTP header, I see where the victim is at on the fake URL which happens to be the login page of the intended webpage
+- The packets are consecutive, the following packet containing the user's credentials
+
+
+
+## How many POST requests were observed for our domain corp-login.acme-corp.local?
+
+To filter for this, the filter should contain POST being the http request method and then searching for the relative domain.
+
+<img width="1440" height="763" alt="Screenshot 2026-02-09 at 8 33 25 PM" src="https://github.com/user-attachments/assets/78a8f33e-3fdf-412e-90d7-149d0449bc11" />
+
+- 1
+
+
+
+## What's the password of the victim found in the plaintext after successful ssl stripping attack. 
+
+Staying where I am, because its "POST", it means information has been submitted. By expanding the HTML header, I'm able to see what the victim has entered.
+
+<img width="1440" height="763" alt="Screenshot 2026-02-09 at 8 36 22 PM" src="https://github.com/user-attachments/assets/4b3e121d-7a30-4d47-a532-918d1e7a02fe" />
+
+- Secret123!
+
+## End
