@@ -46,4 +46,65 @@ After a series "200" response codes created by the attackers requests, the attac
 - 503
 
 
+## Scenario
+- This time, your website experienced a suspected DDoS attack. You’ll use Splunk to investigate what happened. During this exercise, you’ll analyze web access logs collected during the suspected attack period. These logs contain a mix of normal user traffic and potentially malicious requests
+
 ##
+
+### What was the most frequently requested uri?
+
+<img width="1440" height="729" alt="Screenshot 2026-03-02 at 9 37 28 PM" src="https://github.com/user-attachments/assets/8c858bc0-2018-4d3b-8369-9df9899d9559" />
+Splunk main screen
+
+<img width="1440" height="729" alt="Screenshot 2026-03-02 at 9 38 42 PM" src="https://github.com/user-attachments/assets/5134c351-7bc6-43cd-930d-7110b6c82e5c" />
+Shown are details from the uri field. Here, we can see that /search is the top value.
+
+- /search
+
+##
+
+### Which clientip made the most requests to the target uri?
+
+To filter for this, I'll include the uri value (/search) and see which client contains the highest value for this filter.
+
+<img width="1440" height="729" alt="Screenshot 2026-03-02 at 9 59 38 PM" src="https://github.com/user-attachments/assets/9bd0e012-7572-43b5-8bfa-7a8d9c86f209" />
+
+- 203.0.113.7
+
+##
+
+### Use the timechart command to visualize the requests. What is the peak number of requests made per second during the attack?
+
+<img width="1440" height="729" alt="Screenshot 2026-03-03 at 6 39 26 AM" src="https://github.com/user-attachments/assets/3aaa883a-f619-45b2-af5c-f9313adc665b" />
+
+I'll begin by clicking the green column that contains the total amount of events.
+
+<img width="1440" height="729" alt="Screenshot 2026-03-03 at 6 43 09 AM" src="https://github.com/user-attachments/assets/13f4c09b-1658-4419-9113-7f6077ee1b2c" />
+
+To avoid redundancy with the pictures, eventually, I come across a column that contains all of the events for the day -> hour -> minute -> second.
+
+They are all divided up evenly.
+
+<img width="1440" height="729" alt="Screenshot 2026-03-03 at 6 48 15 AM" src="https://github.com/user-attachments/assets/cbcc1a06-4a23-4780-a7c8-1be0df26bb8f" />
+
+- 207
+
+##
+
+### Which legitimate (non-attacking) clientip received the first 503 response status post-attack?
+
+What I'll be filtering for is the response status and utilizing a filter that sorts the results from earliest to latest
+
+<img width="1440" height="729" alt="Screenshot 2026-03-03 at 7 08 12 AM" src="https://github.com/user-attachments/assets/efabacec-fa34-4584-a949-614cea0a59e5" />
+
+Maybe there couldve been a better way to filter or go about it but this is what allowed me to reverse the results and sift through until I found an internal IP. If any better options, I'll include as an edit.
+
+<img width="1440" height="729" alt="Screenshot 2026-03-03 at 7 19 32 AM" src="https://github.com/user-attachments/assets/d18a123a-9ccc-4955-9c29-2ad180c56567" />
+
+
+- 10.10.0.27
+
+##
+
+
+
