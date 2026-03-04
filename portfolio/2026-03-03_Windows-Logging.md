@@ -10,7 +10,7 @@
 
 ##
 
-## Security Log: Authentication
+# Security Log: Authentication
 
 ### Open the "Practice-Security.evtx" file on the VM's Desktop. Which IP performed a brute force of the THM-PC?
 
@@ -62,5 +62,48 @@ Although unable to see, the Source Network Address below contains the same suspi
 This can be found in the screenshots above that show the RDP logon (Type 10)
 
 - 0x183C36D
+
+##
+
+# Security Log: User Management
+
+### Which user was created by the attacker soon after the RDP login
+
+This is in continuation of the last section pertaining to authentication. I know now that the Administrator account was breached and that its Logon ID is 0x183C36D. 
+
+To find logs that relate to created accounts, I will filter for the 4720 Event ID.
+
+<img width="1538" height="1022" alt="image" src="https://github.com/user-attachments/assets/68db70cc-ffec-4da5-b0c8-e7132c92120d" />
+
+In the screenshot, I see that the compromised Administrator account has created an account called:
+
+- svc_sysrestore
+
+##
+
+### Which two privileged groups was the backdoor user added to?
+**(Answer in alphabetical order, e.g. "Administrators, Power Users")**
+
+Now I'm going to filter for the 4732 Event ID which displays what security groups that svc_sysrestore has been added to. 
+- It's also important to note the time of account creation being 10:54:58.
+- The Security ID is: S-1-5-21-1966530601-3185510712-10604624-1013
+
+<img width="1520" height="996" alt="image" src="https://github.com/user-attachments/assets/f179beb9-8a48-4e3f-861c-d97a6de481f4" />
+
+Once the account was created, a second later, it was added to the Users group, this is a default action after creating an account.
+
+<img width="1512" height="684" alt="image" src="https://github.com/user-attachments/assets/793f89df-4353-46ed-aedd-dd1277ee0718" />
+
+Next, the account was added to the Backup Operators group
+
+<img width="1522" height="684" alt="image" src="https://github.com/user-attachments/assets/d81c5d82-0349-4bcc-830f-7da0a84a6a39" />
+
+Finally, the account was added to the Remote Desktop Users group
+
+Note that the Logon ID field matches all throughout this entire process. This means that as soon as the attacker officially gained access to the Administrator account, it was assigned the unique Logon ID value and has stayed consistent for the entire analysis as we can track the actions of that session. 
+
+
+
+
 
 
