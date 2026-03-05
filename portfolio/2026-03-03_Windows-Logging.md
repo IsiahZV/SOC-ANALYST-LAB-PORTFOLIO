@@ -102,8 +102,86 @@ Finally, the account was added to the Remote Desktop Users group
 
 Note that the Logon ID field matches all throughout this entire process. This means that as soon as the attacker officially gained access to the Administrator account, it was assigned the unique Logon ID value and has stayed consistent for the entire analysis as we can track the actions of that session. 
 
+##
 
+## SYSMON: PROCESS MONITORING
 
+### Which web browser does Sarah use to browse the web?
+
+<img width="2246" height="1190" alt="image" src="https://github.com/user-attachments/assets/da745dfd-d898-4821-a0fe-30b263c6a2d0" />
+
+I'll begin by filtering for Event Code: 1
+
+<img width="1520" height="974" alt="image" src="https://github.com/user-attachments/assets/f617834d-e49e-4679-93d9-9ce7bfd5f6bd" />
+
+For reference, the Parent Process always comes first, what were concerned with is what comes of this Parent Process which is the Process Info or "Child Process". 
+
+- User Context:
+  - THM-PC\sara.miller
+  - LogonID:  0x1F98906
+- Parent Info:
+  - PPID -> 4228
+  - Parent Image: C:\Windows\explorer.exe
+  - Parent Command Line: C:\Windows\Explorer.EXE
+- Process Info:
+  -   PID -> 412
+  -   Image: C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+  -   CommandLine: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+  -   CurrentDirectory: C:\Program Files (x86)\Google\Chrome\Application\
+
+The web browser used would be:
+- Google Chrome
+
+##
+
+### Which file did Sarah download from the browser?
+
+Now time to move up the log to the next event. The event after this contains the user account opening the notepad app, but this will be irrelevant. 
+
+<img width="1522" height="1010" alt="image" src="https://github.com/user-attachments/assets/6dce27d2-77b6-423e-8e06-b794c843ab8a" />
+
+- C:\Users\sarah.miller\Downloads\ckjg.exe
+
+The change of Original File Name may be of concern. 
+
+Although the question doesn't prompt it, I did research on the file hash on VirusTotal
+
+<img width="2256" height="1242" alt="image" src="https://github.com/user-attachments/assets/06e10b44-de9c-4df3-9fb4-e60036de9450" />
+
+<img width="2210" height="1238" alt="image" src="https://github.com/user-attachments/assets/3b5b6fa0-5c2d-4331-9e92-6d42f6cc8e1e" />
+
+VirusTotal shows that the hash has been used under different names which would explain ckjg[.]exe along with Stub[.]exe
+
+##
+
+### Which URL was the file downloaded from?
+
+Now, I have to step out of searching within Event ID: 1 and looking at the bigger picture.
+
+To reconstruct the timeline simply (which there isn't much of a timeline because all of this happens almost simultaneously):
+
+- Event 11 → .tmp
+  - In-progress download file from google chrome browser
+- Event 15 → ckjg.exe
+  - Renames or re-writes contents from the .tmp file which leaves this log as a result
+- Event 11 → ckjg.exe:Zone.Identifier
+  - Windows creates Alternate Data Stream object
+- Event 15 → ckjg.exe:Zone.Identifier
+  - Stream being written to (contains zoneId so far)
+- Event 15 → ckjg.exe
+  - Regular file activity (i.e., hashing, metadata updates, reopened)
+- Event 15 → ckjg.exe:Zone.Identifier (with contents)
+  - Stream write completed, could be part of a open, write, close sequence
+  - Contains Url of which the file was downloaded
+ - Next is a series of suspicious registry and process events along with suspicious dns queries to jumbled websites that end in .click (i.e., jfasdfsd[.]click)
+
+<img width="1522" height="1008" alt="image" src="https://github.com/user-attachments/assets/7e27d5f8-71fe-4db3-8111-86bfebea131d" />
+
+- http://gettsveriff.com/bgj3/ckjg.exe
+
+##
+
+## SYSMON: FILES AND NETWORK
 
 
 
