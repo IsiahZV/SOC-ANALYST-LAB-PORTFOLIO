@@ -177,7 +177,7 @@ To reconstruct the timeline simply (which there isn't much of a timeline because
 
 <img width="1522" height="1008" alt="image" src="https://github.com/user-attachments/assets/7e27d5f8-71fe-4db3-8111-86bfebea131d" />
 
-- http://gettsveriff.com/bgj3/ckjg.exe
+- http[:]//gettsveriff[.]com/bgj3/ckjg[.]exe
 
 ##
 
