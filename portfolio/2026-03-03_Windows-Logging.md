@@ -173,6 +173,7 @@ To reconstruct the timeline simply (which there isn't much of a timeline because
 - Event 15 → ckjg.exe:Zone.Identifier (with contents)
   - Stream write completed, could be part of a open, write, close sequence
   - Contains Url of which the file was downloaded
+  - @4:07:38
  - Next is a series of suspicious registry and process events along with suspicious dns queries to jumbled websites that end in .click (i.e., jfasdfsd[.]click)
 
 <img width="1522" height="1008" alt="image" src="https://github.com/user-attachments/assets/7e27d5f8-71fe-4db3-8111-86bfebea131d" />
@@ -183,5 +184,76 @@ To reconstruct the timeline simply (which there isn't much of a timeline because
 
 ## SYSMON: FILES AND NETWORK
 
+To begin, in order to answer questions going forward, I have to restructure this in a way that starts from the process creation logs (Event ID 1) to either network creation or DNS query events. The value of interest to establish this structure is ProcessId
+
+- Going back to the event where the file was downloaded by Sarah @4:08:43 :
+
+<img width="561" height="652" alt="Screenshot 2026-03-11 at 6 43 42 PM" src="https://github.com/user-attachments/assets/dd2ccb89-4964-4f89-99af-e727dbef9907" />
+
+- ProcessId: 1460
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
+- **Event ID 3 (Network Connection):**
+<img width="564" height="652" alt="Screenshot 2026-03-11 at 7 00 34 PM" src="https://github.com/user-attachments/assets/0dc6ae8a-2d7e-4818-b7a3-bcd985d18a7f" />
+
+- @4:08:58
+Here, there is an established network connection with external IP: 193.46.217.4
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+- **Event ID 22 (DNS Query):**
+<img width="561" height="652" alt="Screenshot 2026-03-11 at 6 48 44 PM" src="https://github.com/user-attachments/assets/511b774d-9952-4afe-a364-d9907283240f" />
+
+- @4:08:58
+Here, the suspicious .click query name is displayed, the QueryStatus is 0 which is a success, followed by the IP its querying. Note that before this, there were two other queries prior @4:08:48 where the queries failed and there was no IP. 
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+- **Event ID 11 (File creation):**
+<img width="587" height="652" alt="Screenshot 2026-03-11 at 7 22 58 PM" src="https://github.com/user-attachments/assets/cbc02414-882b-46c8-a1ad-d4048034f13c" />
+- @ 4:08:36
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+**RECONSTRUCTION:**
+
+04:07:38
+- Chrome finishes download
+- ckjg.exe written
+- Zone.Identifier written
+
+04:08:43
+- User executes ckjg.exe
+- Event 1
+
+04:08:46
+- Malware persistence
+- Startup\DeleteApp.url created
+
+04:08:58
+- Malware DNS query
+- hkfasfsafg.click
+
+04:08:58
+- Network connection to C2
+
+##
+
+### Which file was created by the downloaded malware to persist on the host?
+
+- C:\Users\sarah.miller\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\DeleteApp.url
+
+##
+
+### What is the Command & Control server malware connected to?
+
+Referencing the network connection event (3), the IP address was:
+- 193.46.217.4 on port 7777
+
+##
+
+### Finally, which domain does the malicious IP correspond to?
