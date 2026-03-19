@@ -104,7 +104,7 @@ Note that the Logon ID field matches all throughout this entire process. This me
 
 ##
 
-## SYSMON: PROCESS MONITORING
+# SYSMON: PROCESS MONITORING
 
 ### Which web browser does Sarah use to browse the web?
 
@@ -182,7 +182,7 @@ To reconstruct the timeline simply (which there isn't much of a timeline because
 
 ##
 
-## SYSMON: FILES AND NETWORK
+# SYSMON: FILES AND NETWORK
 
 To begin, in order to answer questions going forward, I have to restructure this in a way that starts from the process creation logs (Event ID 1) to either network creation or DNS query events. The value of interest to establish this structure is ProcessId
 
@@ -258,9 +258,13 @@ Referencing the network connection event (3), the IP address was:
 
 ### Finally, which domain does the malicious IP correspond to?
 
+
+
 ##
 
-## LOGGING COMMANDS
+
+
+# Logging Commands
 - Review the Administrator's PS history on the attached VM.
 ### Which PowerShell command was executed first?
 
