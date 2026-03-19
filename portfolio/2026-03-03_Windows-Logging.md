@@ -257,3 +257,42 @@ Referencing the network connection event (3), the IP address was:
 ##
 
 ### Finally, which domain does the malicious IP correspond to?
+
+##
+
+## LOGGING COMMANDS
+- Review the Administrator's PS history on the attached VM.
+### Which PowerShell command was executed first?
+
+
+<img width="733" height="359" alt="Screenshot 2026-03-18 at 9 28 18 PM" src="https://github.com/user-attachments/assets/2c8ee9cf-7c75-4cf4-8786-8a9225056829" />
+
+Seen here is the directory for the poweshell history log. I'll cat the file from here:
+
+<img width="733" height="419" alt="Screenshot 2026-03-18 at 9 33 17 PM" src="https://github.com/user-attachments/assets/a8bd2a31-b759-40a4-a10f-d19b7a3da0de" />
+
+- Get-ComputerInfo
+
+##
+
+### When did the Administrator run the first PS command? (Format: April 18, 2025)
+- The hint for this is that I need to identify the file through the file GUI and explore the Properties
+
+<img width="491" height="505" alt="Screenshot 2026-03-18 at 9 42 42 PM" src="https://github.com/user-attachments/assets/17808b9a-04c2-443c-bbcd-75f04984fdf8" />
+
+- May 18, 2025
+
+##
+
+### Can you find the flag stored in the PowerShell history? (Format: THM{...})
+
+thm.alex attempt:
+<img width="768" height="379" alt="Screenshot 2026-03-18 at 9 48 04 PM" src="https://github.com/user-attachments/assets/c7ce7e68-cc15-41d9-a707-48079f63c4c2" />
+
+
+thm.bob attempt:
+<img width="768" height="379" alt="Screenshot 2026-03-18 at 9 51 12 PM" src="https://github.com/user-attachments/assets/722200fd-1b75-49db-85b6-007be17c0efc" />
+- THM{it_was_me!}
+
+##
+
