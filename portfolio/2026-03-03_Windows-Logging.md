@@ -290,11 +290,13 @@ Seen here is the directory for the poweshell history log. I'll cat the file from
 
 ### Can you find the flag stored in the PowerShell history? (Format: THM{...})
 
-thm.alex attempt:
+> **thm.alex attempt:**
+
 <img width="768" height="379" alt="Screenshot 2026-03-18 at 9 48 04 PM" src="https://github.com/user-attachments/assets/c7ce7e68-cc15-41d9-a707-48079f63c4c2" />
 
 
-thm.bob attempt:
+> **thm.bob attempt:**
+
 <img width="768" height="379" alt="Screenshot 2026-03-18 at 9 51 12 PM" src="https://github.com/user-attachments/assets/722200fd-1b75-49db-85b6-007be17c0efc" />
 - THM{it_was_me!}
 
