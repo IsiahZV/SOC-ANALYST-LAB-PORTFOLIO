@@ -89,4 +89,54 @@ You wont be able to see the entirety of the URL, however, it does contain:
 
 ### Which file did the user download via the web browser?
 
+I've identified the file that was downloaded, however, I'll reconstruct the process:
 
+<img width="921" height="643" alt="Screenshot 2026-03-23 at 6 41 15 PM" src="https://github.com/user-attachments/assets/40f6a10c-0358-43f7-8129-f287fe9e0a84" />
+
+- @ 6:58:28 -> User "Administrator" opens web browser
+
+
+<img width="921" height="643" alt="Screenshot 2026-03-23 at 6 43 42 PM" src="https://github.com/user-attachments/assets/874d29a3-b4de-4520-8ff0-59a1c2f661f5" />
+
+- @ 6:58:28 -> archive file appears in downloads
+- Note how the file ends in .zip
+
+
+<img width="921" height="643" alt="Screenshot 2026-03-23 at 6 48 06 PM" src="https://github.com/user-attachments/assets/bcc4467c-f970-4b61-9d62-22a98fcc33f4" />
+
+- @ 6:58:43 -> File gets unarchived in the "Pictures" directory
+- Note that now unarchived, the file name ends in ".jpg.exe"
+
+
+<img width="921" height="643" alt="Screenshot 2026-03-23 at 7 05 10 PM" src="https://github.com/user-attachments/assets/c6d344ad-7fce-40ab-b8cf-51074ba2e41f" />
+
+- @ 6:59:06 -> The user clicks on the unarchived file
+
+- **Downloaded filename from web browser:** C:\Users\Administrator\Downloads\top-cats.zip
+
+## 
+
+### In which folder did the user unarchive the suspicious file?
+
+- C:\Users\Administrator\Pictures
+
+##
+
+### What is the process ID of the launched phishing malware?
+
+- Refer to latest picture of the reconstruction: (5484)
+
+##
+
+### Finally, which malicious domain did the malware try to connect to?
+
+<img width="921" height="643" alt="Screenshot 2026-03-23 at 7 13 28 PM" src="https://github.com/user-attachments/assets/fc6971c5-fcb2-44e2-b518-07486dfb618b" />
+
+- @ 6:59:09 -> DNS queries are made to "rjj.store"
+- Note the process ID (same processID of the launched malware, this is an extension of the launch)
+
+
+##
+
+
+# Initial Access Via USB
