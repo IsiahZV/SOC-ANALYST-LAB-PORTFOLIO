@@ -49,4 +49,54 @@
 ---
 
 ## DETECTING DISCOVERY
+> For this task, open the VM and run a phishing attachment sample located at:
+
+C:\Users\Administrator\Desktop\Practice\Task 3\invoice.pdf.exe
+
+##
+
+### Looking at Sysmon logs, what is the first command the invoice.pdf.exe executes?
+
+<img width="994" height="787" alt="Screenshot 2026-03-26 at 6 15 02 PM" src="https://github.com/user-attachments/assets/97641c4a-3d55-4767-beaa-81aae1a3ffac" />
+
+> Running suspicious attachment
+
+Now that I've ran the malware, I have to access Event Viewer / Sysmon logs to uncover the process
+
+Remember that commands that were ran are under Event ID 1
+
+<img width="1440" height="787" alt="Screenshot 2026-03-26 at 6 21 07 PM" src="https://github.com/user-attachments/assets/df0bbf94-4086-4d65-97b4-ac6f7159aeb0" />
+
+> Annotated are only traces of the file to display that multiple commands have been ran (I'm going to display the first command event next)
+
+<img width="1120" height="787" alt="Screenshot 2026-03-26 at 6 28 15 PM" src="https://github.com/user-attachments/assets/a6278736-a51c-4629-b542-bdfa4bfaa62c" />
+
+- @ 10:13:39, the file was first double-clicked
+
+<img width="1117" height="787" alt="Screenshot 2026-03-26 at 6 34 15 PM" src="https://github.com/user-attachments/assets/4cb42358-26c4-4150-bcba-2ffd9e8bfde5" />
+
+- Whoami
+
+##
+
+### Which command did the malware use to check the presence of MS Defender EDR?
+
+As a sidenote, I see way more discovery commands ran such as: findstr, services, systeminfo
+These are few of the many as I sift through for the command that checks for MS Defender
+
+<img width="1117" height="787" alt="Screenshot 2026-03-26 at 6 42 02 PM" src="https://github.com/user-attachments/assets/c8f42fd9-f0a2-4505-8512-a786c10102dd" />
+
+- @ 10:14:43, a command was ran to check for the presence for Crowdstrike EDR, then Carbon Black, then MS Defender
+
+<img width="984" height="511" alt="Screenshot 2026-03-26 at 6 49 01 PM" src="https://github.com/user-attachments/assets/d2969277-df33-45b7-9824-f534a9f364c3" />
+
+> Reference picture to show that MS Defender command may appear last in the search
+
+<img width="1122" height="740" alt="Screenshot 2026-03-26 at 6 52 16 PM" src="https://github.com/user-attachments/assets/e1ec1178-0295-43d6-9f14-bcd6ca7ec13a" />
+
+>MS Defender did come last of conducted EDR search
+
+- cmd /c "tasklist /v | findstr MsSense.exe || echo No MS Defender EDR"
+
+##
 
