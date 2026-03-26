@@ -140,3 +140,34 @@ I've identified the file that was downloaded, however, I'll reconstruct the proc
 
 
 # Initial Access Via USB
+> For this task, you will investigate a typical attack chain via USB using the attached Sysmon logs:
+C:\Users\Administrator\Desktop\Practice\USB Case\USB-Sysmon.evtx
+
+##
+
+### Which USB file was launched by the user?
+
+To begin, it should now be understood that Event ID "11" pertains to file creation. In the screenshot below, I've highlighted an event where Event ID 1 (user opens file) comes before 11. This is fine as some events happen so fast that one event may "precede" another visually, just not logically. 
+
+<img width="964" height="664" alt="Screenshot 2026-03-25 at 10 14 48 PM" src="https://github.com/user-attachments/assets/63aa8378-bcd5-4bbc-8936-c221199cf7d4" />
+
+- Note TargetFileName (suspicious directory / naming)
+- Launched USB file: E:\Open Sandisk 4GB USB.exe
+
+##
+
+### Which suspicious file did the malware drop to the disk?
+
+- Refer to TargetFileName from previous screenshot:
+  - C:\Users\Public\Documents\winupdate.exe
+
+##
+
+### To which other USB did the malware propagate?
+
+<img width="964" height="664" alt="Screenshot 2026-03-25 at 10 44 39 PM" src="https://github.com/user-attachments/assets/6fe72d7d-d452-4f98-8234-4559a1fec14d" />
+
+- F:
+
+##
+
