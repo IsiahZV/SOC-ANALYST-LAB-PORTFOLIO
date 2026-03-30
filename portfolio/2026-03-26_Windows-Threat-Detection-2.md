@@ -136,7 +136,7 @@ After assessing if any of the specific EDR tools were present in the system, it 
 ##
 
 ### 📄 Summary
-What this section emphasizes that sensitive information is typically stored on a users computer and therefore displaying the search methods (i.e. Accessing a browser-stored password from the GUI, finding a SSH key through the terminal / command prompt, and looking through the files in the computer to find network information. 
+What this section emphasizes that sensitive information is typically stored on a users computer and therefore displaying the search methods (i.e. Accessing a browser-stored password from the GUI (possible through RDP), finding a SSH key through the terminal / command prompt, and looking through the files in the computer to find network information (also possible through RDP)). 
 
 ---
 
