@@ -59,3 +59,6 @@ By now, it should be known that when domains are queried, Event ID 22 (dns query
 
 ---
 
+## PERSISTENCE OVERVIEW
+
+
