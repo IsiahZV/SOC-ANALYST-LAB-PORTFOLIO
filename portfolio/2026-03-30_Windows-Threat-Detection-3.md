@@ -115,6 +115,61 @@ C:\Users\Administrator\Desktop\Practice\Task 4\
 
 <img width="1152" height="364" alt="Screenshot 2026-04-02 at 10 42 47 AM" src="https://github.com/user-attachments/assets/62245432-6340-4cbd-922a-0d631692b68c" />
 
-Here, there are two files; security and sysmon. Both files can be utilized to uncover the answer, so I believe its to assess the approach between more than one available resource. Personally, because I get to choose, I do like sysmon logs.
+Here, there are two files; security and sysmon. Both files can be utilized to uncover the answer, so I believe its to assess the approach between more than one available resource. 
 
 One thing to note is that the two logs also differ in "all time" and "after reboot". 
+
+After searching through the symon logs, I was unable to find the exact piece that would solve this question, however, I was able to see the typical suspicous behavior / commands being ran so I shifted to the security event log.
+
+<img width="1404" height="1030" alt="image" src="https://github.com/user-attachments/assets/60ab8bda-855e-44f6-8429-e7716e615338" />
+
+To begin, I've filtered for Event ID 4697 (service creation)
+
+<img width="1378" height="922" alt="image" src="https://github.com/user-attachments/assets/0879ea6c-5fec-4025-9091-241418ddd8f6" />
+
+After scrolling through the security log, I've come to learn that most processes that are normal behavior are MS windows / ede updates and services as well as Google services. One that stuck out was "nessie.exe" or the "Data Protection Service".
+
+- Data Protection Service
+
+##
+
+### Which scheduled task was created to persist the Troy malware?
+
+While still using the security event log, I now believe that understanding the baseline of normal activities of the boot process should be emphasized. Some things to note are that you will typically see events such as GoogleUpdater, MSEdge Update / Browser related updates
+
+<img width="1374" height="852" alt="image" src="https://github.com/user-attachments/assets/f5911a8f-ceaa-4361-bad0-900b78fdc4a8" />
+
+<img width="1364" height="692" alt="image" src="https://github.com/user-attachments/assets/96a2df44-38fd-4f11-86d1-6618a18b598b" />
+
+- AmazonSync
+
+##
+
+### What flag do you get after finding and running the Troy malware?
+
+Referencing the previous screenshots, the troy.exe file can be found in: C:\Program Files\ Common Files
+
+<img width="1784" height="962" alt="image" src="https://github.com/user-attachments/assets/fb51f275-1e2c-4622-a376-6c68931b0c6e" />
+
+Then it asks me to solve a question about the parent commandline which can be found in the sysmon log
+
+<img width="1490" height="788" alt="image" src="https://github.com/user-attachments/assets/63f43c42-fbc9-44f6-b8e2-de7b10e3050e" />
+
+<img width="1368" height="1002" alt="image" src="https://github.com/user-attachments/assets/4098ad85-3053-4e69-9fbf-eda8a29937ad" />
+
+- C:\Windows\system32\svchost.exe -k netsvcs -p -s Schedule
+
+<img width="1474" height="778" alt="image" src="https://github.com/user-attachments/assets/602f245c-9c77-4c98-ad87-abf94c18ed74" />
+
+- THM{c2_is_on_schedule!}
+
+---
+
+## PERSISTENCE: RUN KEYS AND STARTUP
+
+> Use all the tools you know to uncover the newly learned backdoors in: C:\Users\Administrator\Desktop\Practice\Task 5\
+
+##
+
+### What is the parent process image of the "Odin" malware?
+
