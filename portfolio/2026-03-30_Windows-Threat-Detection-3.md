@@ -105,5 +105,16 @@ This new support account that was made by the obviously breached Administrator a
 
 ## PERSISTENCE: TASKS AND SERVICES
 
+> The attackers left two backdoors and restarted the system.
+Can you uncover them all using Security and Sysmon logs?
+C:\Users\Administrator\Desktop\Practice\Task 4\
 
+##
 
+### Which Windows service was created to persist the Nessie malware?
+
+<img width="1152" height="364" alt="Screenshot 2026-04-02 at 10 42 47 AM" src="https://github.com/user-attachments/assets/62245432-6340-4cbd-922a-0d631692b68c" />
+
+Here, there are two files; security and sysmon. Both files can be utilized to uncover the answer, so I believe its to assess the approach between more than one available resource. Personally, because I get to choose, I do like sysmon logs.
+
+One thing to note is that the two logs also differ in "all time" and "after reboot". 
