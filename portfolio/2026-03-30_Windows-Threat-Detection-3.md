@@ -61,4 +61,49 @@ By now, it should be known that when domains are queried, Event ID 22 (dns query
 
 ## PERSISTENCE OVERVIEW
 
+> For this task, try to detect a persistence via the backdoored user account:
+C:\Users\Administrator\Desktop\Practice\Task 3\Security.evtx
+
+##
+
+### How many times did the threat actor fail to log in to the Administrator?
+
+To establish, failed logon attempts are Event ID 4625
+
+<img width="883" height="635" alt="Screenshot 2026-04-01 at 8 28 29 PM" src="https://github.com/user-attachments/assets/50f7430b-dca8-4609-84a6-2d49059c5ec3" />
+
+Here, from 8:58:05 - 9:00:20, there have been 6 failed attempts to acces the Administrator account
+
+##
+
+### After the successful login, which backdoor user did the attacker create?
+
+<img width="883" height="635" alt="Screenshot 2026-04-01 at 8 34 01 PM" src="https://github.com/user-attachments/assets/99c13c59-b4a2-4c14-8960-39ee76570fed" />
+
+- @ 9:00:25, the Administrator account was successfully logged into (Event ID 4624)
+
+In between, theres activity where accounts like "winlogon" and "UserManager" have obtained trusted logon process
+The attacker accesses the Administrator VM, where the source IP is: 10.14.97.15
+A user was also added to security-enabled groups 
+
+- Event ID 4720 is about creating user accounts which we see happening @ 9:01:38
+
+<img width="883" height="635" alt="Screenshot 2026-04-01 at 8 50 18 PM" src="https://github.com/user-attachments/assets/61450094-64be-4215-88ca-acba281df658" />
+
+This account was created under the guise of "support"
+
+##
+
+### Which privileged group was the backdoor user added to?
+
+<img width="883" height="635" alt="Screenshot 2026-04-01 at 9 15 33 PM" src="https://github.com/user-attachments/assets/1e7787dd-4b54-47a6-b0e8-62bf0770bb06" />
+
+This new support account that was made by the obviously breached Administrator account assigned the user to:
+- Administrators
+
+---
+
+## PERSISTENCE: TASKS AND SERVICES
+
+
 
