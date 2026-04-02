@@ -173,3 +173,45 @@ Then it asks me to solve a question about the parent commandline which can be fo
 
 ### What is the parent process image of the "Odin" malware?
 
+> Available files
+<img width="1710" height="906" alt="image" src="https://github.com/user-attachments/assets/d8e3be86-0b45-4797-8d0f-fa6432f03cd8" />
+
+Finding images and command line and the like are typically found in the sysmon logs (Which I'm guessing they both are) and in this case, Event ID 1 will show events for process creation
+
+<img width="1378" height="1020" alt="image" src="https://github.com/user-attachments/assets/23d078d9-e476-42b5-808d-940eb8335fc0" />
+
+- C:\Windows\explorer.exe
+
+##
+
+### What is the last line that the "Odin" malware outputs?
+
+<img width="2234" height="1134" alt="image" src="https://github.com/user-attachments/assets/fdb07cf4-6106-443a-9a53-c2715319b096" />
+
+Here, I'm just annotating that the current event is the child process to the preceding event that's seen in the previous question (reconstruction purposes)
+
+- Done doing bad stuff!
+
+##
+
+### What flag do you get after finding and running the "Kitten" malware?
+
+<img width="1366" height="700" alt="image" src="https://github.com/user-attachments/assets/3a791755-864d-44fd-b921-8afff813cb1b" />
+
+Kitten.exe can be found in: C:\Users\Public
+
+<img width="1790" height="1020" alt="image" src="https://github.com/user-attachments/assets/0d5fc273-42df-494d-94e5-93a78db27d5f" />
+
+Now I have to search for the name of the run key added where they're typically stored
+
+<img width="1274" height="314" alt="image" src="https://github.com/user-attachments/assets/be083d9f-3c80-43b7-bb06-2271fc88257f" />
+
+<img width="1280" height="286" alt="image" src="https://github.com/user-attachments/assets/aa8414b3-e318-4d75-9be0-3d00df718245" />
+
+- Basket
+
+<img width="1478" height="276" alt="image" src="https://github.com/user-attachments/assets/6cd9ad22-7926-4ce3-8543-97c5b0aa1fc2" />
+
+- THM{persisting_in_basket!}
+
+--- 
