@@ -43,4 +43,17 @@ Yes, it was up until the annotated date in the year 2026 that the ubuntu user us
 
 
 ## DETECTING SSH ATTACKS
+>  try to uncover the breach that started via SSH password brute force. Continue with the /var/log/auth.log
+### When did the SSH password brute force start?
 
+Because it's asking about brute force, I'll look at the failed login attempts and see if I can spot a streak of failed attempts from a suspicious IP address
+
+<img width="2222" height="1182" alt="image" src="https://github.com/user-attachments/assets/55fdecb4-17d7-47c7-815d-55bcc91cc844" />
+
+Seen here, the suspicious IP attempts to SSH into the root account through different ports on 2025-08-21
+
+##
+
+### Which four users did the botnet attempt to breach?
+
+<img width="2204" height="1148" alt="image" src="https://github.com/user-attachments/assets/9567abaa-f58d-4ce1-9e1a-cd9b276d9e18" />
