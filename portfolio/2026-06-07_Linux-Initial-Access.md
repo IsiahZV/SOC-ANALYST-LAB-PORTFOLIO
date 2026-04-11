@@ -57,3 +57,62 @@ Seen here, the suspicious IP attempts to SSH into the root account through diffe
 ### Which four users did the botnet attempt to breach?
 
 <img width="2204" height="1148" alt="image" src="https://github.com/user-attachments/assets/9567abaa-f58d-4ce1-9e1a-cd9b276d9e18" />
+- root, sol, roy, user
+
+##
+
+### Finally, which IP managed to breach the root user?
+
+For this approach, I'll see what attempts were accepted
+
+<img width="1421" height="771" alt="Screenshot 2026-04-11 at 5 01 59 PM" src="https://github.com/user-attachments/assets/3d878813-e86c-454f-afac-9aaa069d1cb8" />
+
+Some things to note are:
+- The IP address is different from many others (i.e, suspicious IP is external)
+- The threat actor utilized a password to log in
+- This external IP was seen making multiple failed attempts previously @ the root account
+
+
+--- 
+
+
+## INITIAL ACCESS VIA SERVICES
+> Use /var/log/nginx/access.log on the VM to answer the questions. Analyze TryPingMe web logs to detect the attacker's actions.
+### What is the path to the Python file the attacker attempted to open?
+
+<img width="1440" height="413" alt="Screenshot 2026-04-11 at 5 23 01 PM" src="https://github.com/user-attachments/assets/5abb5412-ddc3-4558-892a-ca78c2f1f453" />
+- /opt/trypingme/main.py
+
+##
+
+### Looking inside the opened file, what's the flag you see there?
+
+<img width="1440" height="636" alt="Screenshot 2026-04-11 at 5 25 19 PM" src="https://github.com/user-attachments/assets/3390211d-17d5-4b9a-9c85-b0fc77265a8b" />
+- THM{i_am_vulnerable!}
+
+
+---
+
+
+## DETECTING SERVICE BREACH
+> Look at the TryPingMe breach from the previous task through the auditd angle. Use ausearch
+### What is the PPID of the suspicious whoami command?
+
+<img width="1424" height="221" alt="Screenshot 2026-04-11 at 6 06 07 PM" src="https://github.com/user-attachments/assets/b57e603d-0413-4fc3-ac77-ac936cd8b0d0" />
+
+- 1018
+
+##
+
+### Moving up the tree, what is the PID of the TryPingMe app?
+
+<img width="1424" height="494" alt="Screenshot 2026-04-11 at 6 09 27 PM" src="https://github.com/user-attachments/assets/60ff646b-93d6-4edd-960c-2c5b73f18cbd" />
+
+- 577
+
+##
+
+### Which program did the attacker use to open a reverse shell?
+
+<img width="1424" height="268" alt="Screenshot 2026-04-11 at 6 17 21 PM" src="https://github.com/user-attachments/assets/cfddc6de-5457-4258-ae72-c82b5d975229" />
+
