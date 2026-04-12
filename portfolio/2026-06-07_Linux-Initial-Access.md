@@ -110,9 +110,36 @@ Some things to note are:
 
 - 577
 
+**Process Chain**
+1. whoami → find its ppid = the process that launched whoami was PID 1018
+2. PID 1018 (ausearch --pid 1018) → /bin/sh -c "ping -c 2 ; whoami"
+   - PID 1018 is a shell executing a command string
+3. That shell → ppid = 577
+   - (ausearch --pid 577)
+5. PID 577 → python3 /opt/trypingme/main.py
+
+
 ##
+
 
 ### Which program did the attacker use to open a reverse shell?
 
 <img width="1424" height="268" alt="Screenshot 2026-04-11 at 6 17 21 PM" src="https://github.com/user-attachments/assets/cfddc6de-5457-4258-ae72-c82b5d975229" />
 
+- python
+
+
+#### PPID and Proctitle Command Understanding
+Initially, I had a hard time figuring out in what use case does this command apply (with everyone praising AI, it actually led me in circles and gave me semi-false information even with full process chain info), it wasn't until I used my own critical thinking to solve this question I had. The command in the recent question is searching for additional processes where the the PPID applies. So in this case, I initially searched for "whoami" which had a PPID of 1018. When I used ausearch to search for "ls", its PPID was 1021. 
+
+Now to shift. Because they both have different PPIDs, it means that they are the child of a different process (which is the shell) ALTHOUGH the shell's process will take you back to when the python3 command was ran. The shell process is ONLY different because of the different commands it ran, but the shell will ALWAYS be a product of python3
+
+<img width="1424" height="487" alt="Screenshot 2026-04-11 at 7 46 10 PM" src="https://github.com/user-attachments/assets/855aa1df-a707-49f8-92f7-369d0f4fff69" />
+
+This is the best understanding that I can come up with that wont make me want to throw my brain in the garbage. 
+
+
+---
+
+
+## ADVANCED INTIAL ACCESS
