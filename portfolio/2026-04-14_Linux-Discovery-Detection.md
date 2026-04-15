@@ -33,3 +33,12 @@ This command may also be ran to avoid sandbox detection and adjust payloads for 
 
 <img width="1424" height="782" alt="Screenshot 2026-04-14 at 8 32 21 PM" src="https://github.com/user-attachments/assets/35211c03-80e5-4302-a1ef-6e6d4956720c" />
 
+
+---
+
+
+## DETECTING DISCOVERY
+> For this task, imagine you received a SIEM alert about a spike in Discovery commands.
+The first thing you see is that the itsupport user launched the hostname command.
+Can you continue the investigation on the VM and find out what really happened?
+### 
