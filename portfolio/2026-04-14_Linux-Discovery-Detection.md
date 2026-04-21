@@ -79,3 +79,73 @@ Keyword is discovery command
 
 ## MOTIVATION FOR ATTACKS
 
+> For this task, look for commands on the VM that may indicate Ingress Tool Transfer.
+
+### From which domain was the Elastic agent downloaded?
+
+This question will prompt to either use ausearch for traces of "wget", "curl", or "scp". In this case, its "wget" thats shown to correlate with the command sent to download the Elastic agent.
+
+<img width="1423" height="169" alt="Screenshot 2026-04-21 at 3 14 50 PM" src="https://github.com/user-attachments/assets/8b554360-59bd-465b-a3b9-bda24f162e63" />
+
+- artifacts.elastic.co
+
+##
+
+### What is the full path to the downloaded "helper.sh" script?
+
+<img width="1423" height="200" alt="Screenshot 2026-04-21 at 3 20 56 PM" src="https://github.com/user-attachments/assets/028bcd24-c3fa-4b94-90f2-d399a21092f4" />
+
+In this scenario, curl was ran, making an HTTP request to download a remote file and saving it into the /var/tmp file path. The name "drobbox" could be used as a form of typosquatting as a means to look legit (or simply for identification sake due to the lab), with this specific action being directed to a temporary folder on the host device. 
+
+- /var/tmp/helper.sh
+
+##
+
+### Which of the downloaded files is more likely to be malicious: The one downloaded with curl or wget?
+
+Without using virustotal or any other resource, I would say that the file that was downloaded into /var/tmp is more likely to be malicious. In this case, curl.
+
+
+---
+
+
+## DOTA3: FIRST ACTIONS
+> For this task, try detecting a similar cryptominer infection chain in the VM. Open the /home/ubuntu/scenario folder and use the logs inside.
+
+### Which IP address managed to brute-force the exposed SSH?
+As stated in the previous lab (intial access), when logging in via SSH, trusted users typically access it via publickey (SSH keys) instead of a password which is a red flag.
+
+<img width="1423" height="200" alt="Screenshot 2026-04-21 at 4 24 55 PM" src="https://github.com/user-attachments/assets/41eb4f32-3d00-4355-8a78-706224fc1d65" />
+
+- 45.9.148.125
+
+##
+
+### Which command did the attacker use to list the last logged-in users?
+
+I've tried hard to figure out where this answer would be and by checking online sources to verify, it seems that other learners are struggling at this point as well while those that do have an answer, dont explain how they got to it. Regardless, the command to list the last logged-in users is "last".
+
+##
+
+### Which three EDR processes did the attacker look for with "egrep"?
+I've found that not using auditd and cat-ing the audit log instead has made searches faster. Plus, it simply wont pick up on "egrep" alone. This is also probably because I'm not too familiar yet with using ausearch.
+
+<img width="1423" height="143" alt="Screenshot 2026-04-21 at 5 06 27 PM" src="https://github.com/user-attachments/assets/cc317560-ecb1-4e36-91a2-5920d9c10f3b" />
+
+- ds_agent,falcon,sentinel
+
+#### Research on problem:
+- Executed program: /bin/sh
+- Arguments passed: /usr/bin/egrep , --color=auto , falcon|sentinel|ds_agent
+- A shell (/bin/sh) was launched, and it was told to run an egrep command searching for EDR-related process names.
+
+- Dont use ausearch -i **-x** because egrep alone was never directly executed, it was invoked through the shell
+  - What really was the executable was /bin/sh
+
+After doing research, it still seems that using cat is just way more proficient since ausearch likes to be very specific. Ausearch can be very good to search for specific suspicious discovery and other well known commands to do process reconstruction, however, it was very time consuming for me to try and discover where and how this answer came to be. 
+
+
+---
+
+
+## 
