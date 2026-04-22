@@ -148,4 +148,38 @@ After doing research, it still seems that using cat is just way more proficient 
 ---
 
 
-## 
+## DOTA3: MINER SETUP
+> Continue the analysis of the cryptominer from the previous task and uncover its last steps
+### What is the name of the malicious archive that was transferred via SCP?
+
+<img width="1423" height="179" alt="Screenshot 2026-04-22 at 5 51 59 PM" src="https://github.com/user-attachments/assets/b825ea67-17c5-4d9d-8617-d2e008c937b9" />
+
+Full command is: tar xzf kernupd.tar.gz -C /tmp/.apt
+- The attacker is unarchiving and extracting (tar, x(extract), z(using gzip), f(file name)) kernupd.tar.gz into a directory in /tmp
+- Research notes extracting archives is a sign of: staging, priv. escalation, persisistence
+
+#### Ausearch Research / Fix
+(I fucking hate ausearch)
+- ausearch -i -if /home/ubuntu/scenario/audit.log | grep “PROCTITLE”
+  - Skim through results and see what looks suspicious in the directory
+
+##
+
+### What was the full command line of the cryptominer launch?
+
+<img width="1423" height="494" alt="Screenshot 2026-04-22 at 6 29 52 PM" src="https://github.com/user-attachments/assets/dc945e7a-2625-4d7a-93d1-ad6a5c634b63" />
+
+- nohup /tmp/.apt/kernupd/kernupd
+
+##
+
+### Which IP address range did the attacker scan for an exposed SSH?
+
+I have a bone to pick with THM due to the fact that the training made it seem like the scan would be prompted within the created directory (nohup /tmp/.X26-unix/.rsync/c/tsm -p 22 [...] /tmp/up.txt 192.168 >> /dev/null 2>1&); which made it seem as if you could search based off of context from something that was already built off of such as "nohup" or "/tmp/", additionally, theres no adequate training on ausearch and its use case. In the preceding lab, there seemed to be no use to utilize "-if </directory to audit log> | grep <filter>", in which the only time they introduced this kind of command is through a hint. Additionally, with the praise of AI, it was not able to help in this scenario.
+
+<img width="1423" height="542" alt="Screenshot 2026-04-22 at 7 04 44 PM" src="https://github.com/user-attachments/assets/f973fd64-b44b-49b7-a01f-c9f64d554ecd" />
+
+- 10.10.12.1-10.10.12.10
+
+---
+
