@@ -122,3 +122,33 @@ Going forward (THM doesn't tell you this because they hate you and want you to s
 ---
 
 
+## ACCOUNT PERSISTENCE
+> Now, detect two more persistence methods on the VM: Backdoored user and SSH key.
+
+### Which user was created and added to the sudo group?
+First, I'm going to use ausearch to filter for the use of "useradd" and or "usermod"
+
+<img width="2226" height="272" alt="image" src="https://github.com/user-attachments/assets/d43ce0cd-e378-4368-a1d5-60bd285a4b6b" />
+
+Now cat the auth.log
+
+<img width="2220" height="252" alt="image" src="https://github.com/user-attachments/assets/1af9d2c2-b36b-4551-9282-32d9cf099a8c" />
+
+Whats seen here in the auth log is the initial act where the attacker created the koichi user / group which was seen when using the audit log (ausearch).
+
+- sudo
+
+##
+
+### Which file was changed to allow SSH key persistence?
+
+Now I'm going to be checking on the SSH authorized keys file to see if the attacker may have added a backdoor key onto the system
+
+<img width="2208" height="566" alt="image" src="https://github.com/user-attachments/assets/42e43e57-809a-4692-885e-bcfd415a71d8" />
+
+From what I know, SSH public keys are stored in ~/.ssh/authorized_keys, and attackers can use them for persistence. In audit logs, seeing proctitle=bash may indicate that commands were executed within a shell, but without proper execve logging or auditing configuration, the exact commands may not be visible. This suggests potential malicious activity
+
+- /root/.ssh/authorized_keys
+
+
+---
