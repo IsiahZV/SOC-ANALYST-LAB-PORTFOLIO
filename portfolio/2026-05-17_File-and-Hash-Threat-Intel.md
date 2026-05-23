@@ -151,3 +151,121 @@ At this point, I had to pivot to the VM specific application due to changes occu
 
 ### Analyze the payroll.pdf file located in the CTI Files folder and answer the questions below. The payroll.pdf application seems to be masquerading as which known Windows file?
 
+<img width="1996" height="888" alt="image" src="https://github.com/user-attachments/assets/e4312648-cdea-429a-9502-038310d088cb" />
+
+- svchost.dll
+
+
+##
+
+
+### What associated URL is linked to the file?
+
+For all things associated with network connections via IP / URL, I can likely find its information in the network tabs
+
+<img width="1052" height="474" alt="image" src="https://github.com/user-attachments/assets/de8b542a-989a-489b-b4e7-226a3dc65faa" />
+
+- hxxp://121.182.174.27:3000/server.exe
+
+
+##
+
+
+### How many extracted strings were identified from the sandbox analysis of the file?
+
+<img width="1042" height="510" alt="image" src="https://github.com/user-attachments/assets/558fa050-4a18-4c67-928d-ae63b17b0037" />
+
+- 454
+
+---
+
+## THREAT INTELLIGENCE CHALLENGE
+
+> After completing the prior tasks pertaining to threat intelligence via file attributes, I am now tasked with investigating one final file "Challenge.bin.sample"
+
+### What is the SHA256 hash of the file?
+
+<img width="1696" height="898" alt="image" src="https://github.com/user-attachments/assets/3a48a1b2-6011-4ff4-b77e-cf136bf2ea43" />
+
+- 43b0ac119ff957bb209d86ec206ea1ec3c51dd87bebf7b4a649c7e6c7f3756e7
+
+
+##
+
+
+### What family labels are assigned to the file on VirusTotal?
+
+You wont find both answers in the same place on VirusTotal so the attached lab source has to be utilized (the question should be updated).
+
+<img width="2234" height="1126" alt="image" src="https://github.com/user-attachments/assets/9945f81c-ea10-4de1-bb73-eb2ef491cd1f" />
+
+- akira, filecryptor
+
+**Why this matters:**
+- Doing this (identifying malware family's from a malicious file) helps you understand the threat behavior due to the malware family sharing code, techniques, and objectives which helps make incident response quicker.
+- Identifying family's help prioritize severity by understanding the type of impact that could occur, reporting requirements, urgency, and more
+  - Commodity = standard remediation
+  - Ransomware = legal, exec, LE escalation
+- Improves detection engineering by allowing teams to create YARA rules, configure SIEM alerts and EDR detections
+
+- Limitation:
+  - Different vendors use different labels for the same malware so analysts have to validate by correlating behavior, infrastructure, ATT&CK mappings, and sandbox results
+
+
+##
+
+
+### When was the first time the file was recorded in the wild? (Answer Format: YYYY-MM-DD HH:MM:SS UTC)
+
+Now you have to shift back to VirusTotal which they don't tell you as well since the ITW date is different than whats posted in VT
+
+<img width="2252" height="1236" alt="image" src="https://github.com/user-attachments/assets/ded0d1aa-4b1c-40ed-b6e2-4062826f97c7" />
+
+- 2024-10-30 17:17:24 UTC
+
+
+##
+
+
+### Name the text file dropped during the execution of the malicious file.
+
+<img width="2240" height="1124" alt="image" src="https://github.com/user-attachments/assets/740aaa62-02a3-4af4-b328-533b1afd173c" />
+
+- akira_readme.txt
+
+**Why this matters:**
+- This is important because dropped files can reveal malwares true functionality, its persistence mechanisms, payloads, and scope of compromise while the original file is just the "loader".
+- The dropped files are any file written to the disk by malware after execution that can appear to be executables, DLLs, scripts, scheduled task files, config files, notes, and more
+  - Typically found in locations like %AppData%, %Temp%, System32, startup folders, and hidden directories
+
+
+##
+
+
+### What PowerShell command is observed to be executed?
+
+<img width="2236" height="1116" alt="image" src="https://github.com/user-attachments/assets/d8574a06-81fa-49e4-a92b-bdcb68ab16e5" />
+
+- Get-WmiObject Win32_Shadowcopy | Remove-WmiObject
+
+**Why this matters:**
+- Because powershell is one of th most commonly abused tools, the commands reveal the attackers intent, capabilities, persistence methods, lateral movements, and objectives
+- Also used for fileless malware, where instead of writing malware to the disk, powershell downloads payloads into memory, injects codes into processes, executes encoded scripts, and more.
+  - Because of this, anti-virus doesnt see a file, much artifacts arent left behind after reboot. Sometimes powershell commands may be the only primary evidence
+
+
+##
+
+
+### What MITRE ATT&CK ID is associated with the actions of the command?
+
+For this, reference the previous question's screenshot and read the discription below which states that the use of the command is: "Deletes all Volume Shadow Copies to prevent system restore and file recovery"
+
+<img width="2220" height="1104" alt="image" src="https://github.com/user-attachments/assets/8b2e1027-c75e-4784-8b38-1c39bb28f95a" />
+
+The key is that the purpose is to prevent a function of the endpoint
+
+- T1490
+
+
+---
