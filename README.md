@@ -20,7 +20,7 @@ To develop foundational skills in log analysis, network forensics, and intrusion
 - [Alert Investigation Through EDR Console](portfolio/2025-11-20_investigating-alerts-on-edr.md)
 
 
-### SIEM Tools
+### Analysis W/ SIEM Tools
 [Analyzing VPN Logs via Splunk](portfolio/2025-11-24_splunk-foundations-and-vpn-logs.md)
 
 [Analyzing VPN Logs Via Elastic](portfolio/2025-12-09_elastic-stack.md)
