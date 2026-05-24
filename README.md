@@ -73,6 +73,7 @@ To develop foundational skills in log analysis, network forensics, and intrusion
 
 ### 🌉 Command and Control
 > I want to note that MITM can also fall under Delivery and AoB depending on how its used. It most commonly falls under C2
+
 [MITM Detection With Wireshark](portfolio/2026-02-03_man-in-the-middle-detection.md)
 
 
