@@ -17,7 +17,6 @@ The attacker sent a malicious link disguised as a meeting invitation. Upon inter
 ### 🔧 Response & Remediation
 Execution of incident response plan immediately upon alert:
 1. **Isolation**: Disconnected the affected host from the local network to prevent lateral movement.
-   + Reset client domain and corporate credentials 
 2. **Remediation**: Wiped and re-imaged the asset to ensure complete eradication of the threat.
 3. **Identity Containment**: Manual credential revocation via Active Directory (AD).
    * Rotated the affected user's domain and corporate credentials to invalidate any compromised session tokens.
