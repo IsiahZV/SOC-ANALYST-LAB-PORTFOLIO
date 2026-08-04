@@ -81,3 +81,11 @@ To develop foundational skills in log analysis, network forensics, and intrusion
 ### 📤Exfiltration / Actions on Objectives
 [Wireshark / SIEM-Based Data Exfiltration Detection](portfolio/2026-01-31_data-exfiltration-detection.md)
 
+
+
+---
+
+
+## Incident Response Case Studies
+> MSP Experience
+[Responding to Attacker's RAT Delivery](portfolio/incident-001-rat-delivery.md)
