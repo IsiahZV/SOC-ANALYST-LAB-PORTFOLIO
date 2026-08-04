@@ -88,4 +88,5 @@ To develop foundational skills in log analysis, network forensics, and intrusion
 
 ## Incident Response Case Studies
 > MSP Experience
+
 [Responding to Attacker's RAT Delivery](portfolio/incident-001-rat-delivery.md)
