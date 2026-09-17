@@ -69,19 +69,27 @@ To develop foundational skills in log analysis, network forensics, and intrusion
 
 ### 🔍 Discovery / Reconnaissance
 [Investigate Internal Scanning Activity Manually and With Elastic](portfolio/2026-01-27_network-discovery-detection.md)
+
 [Linux Discovery Detection](portfolio/2026-04-14_Linux-Discovery-Detection.md)
+
 [Windows Threat Detection](portfolio/2026-03-26_Windows-Threat-Detection-2.md)
+
 [IP and Domain Threat Intelligence - Defender Side](portfolio/2026-05-24_IP-and-Domain-Threat-Intel.md)
+
 [Elastic Stack](portfolio/2025-12-09_elastic-stack.md)
+
 [Splunk & VPN Logs](portfolio/2025-11-24_splunk-foundations-and-vpn-logs.md)
 
 ### Weaponization
 [Malware Analysis](portfolio/2026-09-05_Intro-Malware-Analysis.md)
+
 [File / Hash Threat Intel](portfolio/2026-05-17_File-and-Hash-Threat-Intel.md)
+
 [Artifact to Intel - Mult. Stage Malware Delivery](portfolio/lab-artifact-to-intel.md)
 
 ### Delivery
 [Phishing Analysis Fundamentals](portfolio/2025-12-23_phishing-analysis-fundamentals.md)
+
 [Analyzing Emails with Wireshark](portfolio/2025-12-29_analyzing-emails-with-wireshark.md)
 
 ### 🌉 Command and Control
