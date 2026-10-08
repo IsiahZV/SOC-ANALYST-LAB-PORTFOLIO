@@ -53,10 +53,24 @@ From here, I'll open the file via Sysmon View
 
 <img width="642" height="503" alt="image" src="https://github.com/user-attachments/assets/92c83fa0-5b61-4707-911d-3d4104c41acd" />
 
+
+> To clarify, all of this traffic is stemming from the WINWORD.EXE process
 Vulnerable Host IP: 192.168.254.107
 - Initiating outbound traffic from a high port number
 
 One second later, a DNS query event is logged, showing WINWORD.EXE (MS Word) executed the query
 - In short, a running word process attempted to connect to the internet and request the IP for ecs[.]office[.]com
 
-Immediately after, 
+Immediately after, another connection opens up to a different external IP: 52.113.194.132 on port 443.
+
+About four more connections are made until the next DNS query
+
+<img width="655" height="502" alt="image" src="https://github.com/user-attachments/assets/9871491b-9884-4026-9f15-7192379c8355" />
+
+- 4:59:29 PM — The first malicious lookup to phishteam.xyz
+- 4:59:29 PM — New HTTP connection after domain was resolved to DST IP: 167.71.199.191 on port 80
+- 4:59:30 PM - Another query to the suspicious URL
+
+<img width="656" height="502" alt="image" src="https://github.com/user-attachments/assets/271be79e-7119-4230-b58e-64bdeb3e3c6f" />
+
+ Network connections persist until at 
