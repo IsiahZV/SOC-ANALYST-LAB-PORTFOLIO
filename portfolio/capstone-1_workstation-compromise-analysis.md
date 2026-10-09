@@ -33,7 +33,7 @@ This room aims to introduce the process of analysing endpoint and network logs f
 - D0279D5292BC5B25595115032820C978838678F4333B725998CFE9253E186D60
 
 
----
+----
 
 
 ## INITIAL ACCESS - MALICIOUS DOCUMENT
