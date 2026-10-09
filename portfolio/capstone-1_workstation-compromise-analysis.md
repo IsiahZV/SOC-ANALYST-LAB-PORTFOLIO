@@ -73,4 +73,11 @@ About four more connections are made until the next DNS query
 
 <img width="656" height="502" alt="image" src="https://github.com/user-attachments/assets/271be79e-7119-4230-b58e-64bdeb3e3c6f" />
 
- Network connections persist until at 
+ Network connections persist until at 4:59:34, another query is made for augloop.office.com
+
+ A few more connections are made until a process appears at 5:13:12
+
+ <img width="1045" height="554" alt="image" src="https://github.com/user-attachments/assets/91eb7671-6a7b-4e33-ae85-2cbba4726746" />
+
+Next, the process is modifying specific registry keys under HKU (HKEY_USERS) likely to achieve persistence.
+- The process modified the shell\open\command and shell\edit\command registry keys for a file extension handler "ocsmeet_auto_file"
