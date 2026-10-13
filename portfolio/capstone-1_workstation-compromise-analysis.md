@@ -80,4 +80,16 @@ About four more connections are made until the next DNS query
  <img width="1045" height="554" alt="image" src="https://github.com/user-attachments/assets/91eb7671-6a7b-4e33-ae85-2cbba4726746" />
 
 Next, the process is modifying specific registry keys under HKU (HKEY_USERS) likely to achieve persistence.
-- The process modified the shell\open\command and shell\edit\command registry keys for a file extension handler "ocsmeet_auto_file"
+- The process modified the shell\open\command and shell\edit\command registry keys for a file extension handler "ocsmeet_auto_file", rewriting the default command under the keys so that when the victim attempts to click on or edit a file type associated with ocsmeet, the OS will execute malicious code.
+
+- For the last registry value, though the exploit originated from MS Word, the malware modifies the registry settings for MS Excel Add-ins, so that the next time the victim launches Excel, the the malicious add-in will execute in memory, allowing the attacker to better avoid detection.
+   - Research states: Malware targets HKEY USERS because modifying user-level registry doesn't require administrative privileges and prevents User Access Control prompts
+
+- After the registry keys are exploited, @ 5:13:14, a file named "~$ee_magicules.doc" drops in the download folder
+- One second later, a temporary .doc file is created in the Office AppData local temp directory
+
+<img width="741" height="365" alt="image" src="https://github.com/user-attachments/assets/3b0db3e8-b9c8-4f8d-aba1-a0c5ccba08b6" />
+
+- At 5:13:18, theres activity in manipulation of licensing application paths
+- Finally, at 5:13:34, a registry modification occurs at: HKU\..._Classes\Software\Microsoft\Office\16.0\Word\Security\Trusted Documents\TrustRecords\%USERPROFILE%/Downloads/free_magicules.doc
+  - By adding free_magicules.doc directly into the Microsoft Word Trusted Documents\TrustRecords registry hive, the malware programmatically clicks "Enable Content" for the victim. (Research)
